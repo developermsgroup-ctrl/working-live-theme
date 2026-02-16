@@ -731,3 +731,30 @@ li.filter--list-item input {
 li.filter--list-item {
     align-items: center !important;
 }
+
+.collection-filters-sidebar--root {
+    max-height: 120vh;
+}
+.product--label {
+    background-color: #be6345;
+    color: #fff;
+    border-radius: 0px;
+    padding: 0px 17px !important;
+}
+ 
+.product-card--add-to-cart-btn.added {
+    background: #be6345;
+    color: #fff !important;
+}
+[data-container=panel][data-columns="6"] .featured-grid--item {
+    height: auto;
+}
+ 
+.featured-grid--item-shop-now {
+    position: static;
+    margin-top: 14px;
+}
+ 
+.product-card--root img.product-card--image {
+    object-fit: fill;
+}
