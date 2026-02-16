@@ -1,0 +1,71 @@
+{% comment %}
+  Accepts:
+    "block" HTML block to render in the carousel
+{% endcomment %}
+
+{% liquid
+  assign blocks_per_slide_mobile = blocks_per_slide_mobile | plus: 0
+  assign blocks_per_slide_float = blocks_per_slide | append: ".00"
+  assign blocks_per_slide_float_mobile = blocks_per_slide_mobile | append: ".00"
+  assign total_slides = total_blocks | divided_by: blocks_per_slide_float | ceil
+  assign total_slides_mobile = total_blocks | divided_by: blocks_per_slide_float_mobile | ceil
+  assign total_spaces = blocks_per_slide | times: total_slides
+  assign total_spaces_mobile = blocks_per_slide_mobile | times: total_slides_mobile
+
+  capture css_vars
+    echo '--blocks-per-slide:' | append: blocks_per_slide | append: ';'
+    echo '--blocks-per-slide-mobile:' | append: blocks_per_slide_mobile | append: ';'
+    echo '--total-slides:' | append: total_slides | append: ';'
+    echo '--total-slides-mobile:' | append: total_slides_mobile | append: ';'
+    echo '--total-spaces:' | append: total_spaces | append: ';'
+    echo '--total-spaces-mobile:' | append: total_spaces_mobile | append: ';'
+  endcapture
+%}
+
+<carousel-element
+  class="carousel--root"
+  data-id="{{ section.id }}"
+  data-last-slide="false"
+  data-columns="{{ blocks_per_slide }}"
+  data-mobile-only="{{ mobile_only }}"
+  data-mobile-columns="{{ blocks_per_slide_mobile }}"
+  data-mobile-next-visible="{{ mobile_next_visible }}"
+  data-spacing-around-blocks="true"
+  data-transition-type="slide"
+  style="{{ css_vars }}"
+>
+  <div class="carousel--wrapper">
+    {%- unless total_slides == 1 or mobile_only == true -%}
+      <button
+        class="carousel--prev"
+        aria-label="{{ 'general.a11y.previous' | t }}"
+        aria-disabled="true"
+        data-mq="medium-large"
+      >
+        {%- render 'css-icons', icon: 'prev' -%}
+      </button>
+    {%- endunless -%}
+
+    <div class="carousel--container">
+      {%- for block in blocks limit: total_blocks -%}
+        <div
+          class="carousel--block"
+          data-id="{{ section.id | append: '--block-' | append: forloop.index }}"
+        >
+          {{- block -}}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- unless total_slides == 1 or mobile_only == true -%}
+      <button
+        class="carousel--next"
+        aria-label="{{ 'general.a11y.next' | t }}"
+        aria-disabled="true"
+        data-mq="medium-large"
+      >
+        {%- render 'css-icons', icon: 'next' -%}
+      </button>
+    {%- endunless -%}
+  </div>
+</carousel-element>

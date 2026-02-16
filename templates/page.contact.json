@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1632436597fbc1d0e4": {
+      "type": "image-with-text",
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "half",
+        "background-color": "none",
+        "container-width": "6",
+        "white-text": true,
+        "overlap": false,
+        "heading-type": "section-heading",
+        "text-position": "overlay",
+        "text-horizontal-alignment": "center",
+        "text-vertical-alignment": "center",
+        "text-width": "medium",
+        "text-style": "none",
+        "text-background-color": "transparent",
+        "image-display-type": "medium",
+        "aspect-ratio": 56,
+        "overlay-style": "darken-bottom",
+        "parallax-enabled": false,
+        "image": "shopify://shop_images/ContactUs-EnhanceGlow-PurpleBeautyCosmetics.jpg",
+        "overline": "Contact us",
+        "title": "Get in touch",
+        "highlight-type": "italic",
+        "highlight-color": "#ffdd66",
+        "highlight-text": "#000000",
+        "description": "",
+        "link-url": "",
+        "link-text": "",
+        "mobile-full-width": true,
+        "mobile-spacing-above": "none",
+        "mobile-spacing-below": "none",
+        "mobile-overlay": true,
+        "mobile-hide-description": false,
+        "mobile-image-display-type": "original",
+        "mobile-aspect-ratio": 134,
+        "mobile-text-alignment": "center"
+      }
+    },
+    "main": {
+      "type": "page",
+      "settings": {
+        "show-title": false,
+        "background-color": "none",
+        "white-text": false,
+        "container-width": "1",
+        "spacing-above": "none",
+        "spacing-below": "full",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    },
+    "16324378141979f11c": {
+      "type": "featured-text",
+      "disabled": true,
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "full",
+        "background-color": "none",
+        "outer-background": true,
+        "white-text": false,
+        "text-alignment": "center",
+        "heading-type": "section-heading",
+        "container-width": "1",
+        "overline": "",
+        "heading": "",
+        "highlight-type": "italic",
+        "highlight-color": "#ffdd66",
+        "highlight-text": "#000000",
+        "description": "<p>Introduce your brand, products and vision statement and welcome customers to your store.</p>",
+        "link-url": "/",
+        "link-text": "Optional link",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    },
+    "1632180071f18cee62": {
+      "type": "contact",
+      "settings": {
+        "border": "bottom",
+        "spacing-above": "none",
+        "spacing-below": "full",
+        "background-color": "none",
+        "outer-background": true,
+        "white-text": false,
+        "heading-alignment": "center",
+        "container-width": "2",
+        "heading": "Send Us a Message",
+        "store-address": "Email : \ninfo@enhanceglow.com\n\nPhone : \n+971 50 585 4326\n\nAddress:\nOffice 1M-17, Capitol Warehouse, 26th Street - Al Marabea' Street, Al Quoz 4, \nDubai, United Arab Emirates.",
+        "store-hours": "<p>Working Hours : <br/><br/>Monday - Sunday (8am - 7pm)<br/></p>",
+        "show-social-sharing": true,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    }
+  },
+  "order": [
+    "1632436597fbc1d0e4",
+    "main",
+    "16324378141979f11c",
+    "1632180071f18cee62"
+  ]
+}

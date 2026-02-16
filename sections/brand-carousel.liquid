@@ -1,0 +1,104 @@
+{% comment %}
+  Brand Logo Carousel – Shopify section
+  • Add up to 20 logos (image + optional link + name)
+  • Uses the Slick slider CDN for smooth, touch‑friendly autoplay
+{% endcomment %}
+
+<div class="brand-carousel-wrapper">
+  <h2 class="brand-carousel-title">SHOP BY BRAND&nbsp;&raquo;</h2>
+
+  <div class="brand-carousel">
+    {%- for block in section.blocks -%}
+      <div class="brand-item" {{ block.shopify_attributes }}>
+        {%- if block.settings.brand_link != blank -%}<a href="{{ block.settings.brand_link }}">{%- endif -%}
+
+          {%- if block.settings.logo != blank -%}
+            <img
+  src="{{ block.settings.logo | img_url: '200x200' }}"
+  alt="{{ block.settings.brand_name | escape }}"
+  width="200"
+  height="200"
+  loading="lazy"
+/>
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag }}
+          {%- endif -%}
+
+        {%- if block.settings.brand_link != blank -%}</a>{%- endif -%}
+
+        {%- if block.settings.brand_name != blank -%}
+          <span class="brand-name">{{ block.settings.brand_name }}</span>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{%- comment -%}‑‑ Slick slider CSS/JS (served from CDN) ‑‑{%- endcomment -%}
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+  crossorigin="anonymous"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" crossorigin="anonymous" defer></script>
+
+<style>
+  .brand-carousel-wrapper { text-align: center; padding: 40px 0; }
+  .brand-carousel-title  { font-size: 32px; letter-spacing: 2px; margin-bottom: 35px; }
+  .brand-carousel        { width: 100%; margin: 0 auto; }
+  .brand-item            { padding: 10px; }
+  .brand-item img        {
+    width: 140px; height: 140px;
+    border: 2px solid #e0e0e0; border-radius: 50%;
+    object-fit: contain; transition: transform .3s;
+  }
+  .brand-item:hover img  { transform: scale(1.05); }
+  .brand-name            { display: block; margin-top: 12px; font-size: 14px; letter-spacing: 1px; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof jQuery === 'undefined') {
+      console.warn('jQuery is required for Slick slider. Most Shopify themes already include it.');
+      return;
+    }
+    $('.brand-carousel').slick({
+      slidesToShow: 6,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      arrows: false,
+      dots: false,
+      pauseOnHover: true,
+      responsive: [
+        { breakpoint: 1024, settings: { slidesToShow: 4 } },
+        { breakpoint: 768,  settings: { slidesToShow: 3 } },
+        { breakpoint: 480,  settings: { slidesToShow: 2 } }
+      ]
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Brand Logo Carousel",
+  "max_blocks": 20,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "brand",
+      "name": "Brand logo",
+      "settings": [
+        { "type": "image_picker", "id": "logo",       "label": "Logo image" },
+        { "type": "text",         "id": "brand_name", "label": "Brand name" },
+        { "type": "url",          "id": "brand_link", "label": "Link (optional)" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "Brand Logo Carousel", "category": "Custom" }
+  ]
+}
+  
+{% endschema %}
+

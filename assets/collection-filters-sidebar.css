@@ -1,0 +1,331 @@
+/* ===============================================
+   Collection Filters Sidebar Styles
+   =============================================== */
+
+.collection-filters-sidebar--root {
+  position: sticky;
+  top: 120px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+.collection-filters-sidebar--wrapper {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+/* Active Filters */
+.active-filters--container {
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.active-filters--header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.active-filters--title {
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.active-filters--clear-all {
+  font-size: 13px;
+  color: #666;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.active-filters--clear-all:hover {
+  color: #000;
+}
+
+.active-filters--tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.active-filter--tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.active-filter--tag:hover {
+  background: #e5e5e5;
+  border-color: #ccc;
+}
+
+.active-filter--tag svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* Filter Form */
+.collection-filters--form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.filters--product-count {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+/* Filter Group */
+.filter--group {
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 16px;
+}
+
+.filter--group:last-of-type {
+  border-bottom: none;
+}
+
+.filter--details {
+  width: 100%;
+}
+
+.filter--details[open] .filter--icon {
+  transform: rotate(180deg);
+}
+
+.filter--summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 12px 0;
+  user-select: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter--summary::-webkit-details-marker {
+  display: none;
+}
+
+.filter--icon {
+  transition: transform 0.3s ease;
+  width: 16px;
+  height: 16px;
+}
+
+.filter--icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.filter--options {
+  padding: 8px 0 0;
+}
+
+/* Price Range Filter */
+.filter--price-range {
+  padding: 4px 0;
+}
+
+.price-range--inputs {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.price-input--wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.price-input--label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.price-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.price-input:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.price-range--separator {
+  font-weight: 600;
+  color: #999;
+  margin-top: 20px;
+}
+
+/* Checkbox List */
+.filter--list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter--list-item {
+  padding: 0;
+}
+
+.filter--checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 6px 0;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.filter--checkbox-label:hover {
+  color: #000;
+}
+
+.filter--checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #000;
+}
+
+.filter--checkbox-label-text {
+  flex: 1;
+}
+
+.filter--count {
+  font-size: 13px;
+  color: #999;
+}
+
+/* Filter Actions */
+.filter--actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.filter--apply-btn,
+.filter--reset-btn {
+  width: 100%;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+  text-decoration: none;
+  display: block;
+}
+
+.filter--apply-btn {
+  background: #000;
+  color: #fff;
+}
+
+.filter--apply-btn:hover {
+  background: #333;
+}
+
+.filter--reset-btn {
+  background: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.filter--reset-btn:hover {
+  background: #e5e5e5;
+}
+
+/* 2-Column Layout for Collection Page */
+.collection-page--with-sidebar {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.collection-page--sidebar {
+  grid-column: 1;
+}
+
+.collection-page--main {
+  grid-column: 2;
+  min-width: 0; /* Prevents grid blowout */
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 989px) {
+  .collection-page--with-sidebar {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .collection-page--sidebar {
+    display: none; /* Hide sidebar on mobile, use drawer instead */
+  }
+  
+  .collection-page--main {
+    grid-column: 1;
+  }
+}
+
+/* Scrollbar Styling */
+.collection-filters-sidebar--root::-webkit-scrollbar {
+  width: 6px;
+}
+
+.collection-filters-sidebar--root::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.collection-filters-sidebar--root::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+.collection-filters-sidebar--root::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}

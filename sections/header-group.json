@@ -1,0 +1,202 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "announcement": {
+      "type": "announcement",
+      "blocks": {
+        "announcement_hq8R4N": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "Limited stock! Shop Your Favorites before your they are gone. Shop now!",
+            "link": "",
+            "hide-on-desktop": false,
+            "hide-on-mobile": false,
+            "page-enabled": false,
+            "page-url": "",
+            "countdown-enabled": false,
+            "timer-bg-color": "dark",
+            "light-number": true,
+            "expiry-date": "DD-MM-YYYY",
+            "expiry-hours": 0,
+            "expiry-minutes": 0,
+            "hide-when-expired": true
+          }
+        },
+        "announcement_hPr9yL": {
+          "type": "announcement",
+          "settings": {
+            "icon": "none",
+            "text": "100% Authentic Products | Express Shipping : Same Day Delivery in Dubai  | Easy Returns",
+            "link": "",
+            "hide-on-desktop": false,
+            "hide-on-mobile": false,
+            "page-enabled": false,
+            "page-url": "",
+            "countdown-enabled": false,
+            "timer-bg-color": "light",
+            "light-number": true,
+            "expiry-date": "DD-MM-YYYY",
+            "expiry-hours": 0,
+            "expiry-minutes": 0,
+            "hide-when-expired": true
+          }
+        },
+        "announcement_LL3DHi": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "icon": "none",
+            "text": "Announcement for sales, promos & more",
+            "link": "",
+            "hide-on-desktop": false,
+            "hide-on-mobile": false,
+            "page-enabled": false,
+            "page-url": "",
+            "countdown-enabled": true,
+            "timer-bg-color": "dark",
+            "light-number": true,
+            "expiry-date": "DD-MM-YYYY",
+            "expiry-hours": 0,
+            "expiry-minutes": 0,
+            "hide-when-expired": true
+          }
+        },
+        "announcement_mN6xn6": {
+          "type": "announcement",
+          "settings": {
+            "icon": "none",
+            "text": "Other Emirates - Next Day Delivery | International Delivery: 3 - 5 Days | Secure Card & COD Payments",
+            "link": "",
+            "hide-on-desktop": false,
+            "hide-on-mobile": false,
+            "page-enabled": false,
+            "page-url": "",
+            "countdown-enabled": false,
+            "timer-bg-color": "light",
+            "light-number": true,
+            "expiry-date": "DD-MM-YYYY",
+            "expiry-hours": 0,
+            "expiry-minutes": 0,
+            "hide-when-expired": false
+          }
+        }
+      },
+      "block_order": [
+        "announcement_hq8R4N",
+        "announcement_hPr9yL",
+        "announcement_LL3DHi",
+        "announcement_mN6xn6"
+      ],
+      "custom_css": [
+        "announcement-bar-element.announcement--root {background: #767733 !important;}"
+      ],
+      "settings": {
+        "sticky-enabled": false,
+        "border": "none",
+        "background-color": "dark",
+        "white-text": true,
+        "arrows-enabled": true,
+        "rotate-frequency": 7,
+        "show-social-icons": true,
+        "show-region-selector": true,
+        "show-locale-selector": false,
+        "scroll-text": true,
+        "animation-speed": 3
+      }
+    },
+    "split-announcements": {
+      "type": "split-announcements",
+      "blocks": {
+        "store_message_4qH9XA": {
+          "type": "store-message",
+          "settings": {
+            "icon": "none",
+            "heading": "Heading",
+            "description": "Description",
+            "link-url": ""
+          }
+        }
+      },
+      "block_order": [
+        "store_message_4qH9XA"
+      ],
+      "disabled": true,
+      "settings": {
+        "home-page-only": false,
+        "border": "none",
+        "background-color": "light",
+        "white-text": false,
+        "icon": "none",
+        "heading": "Heading",
+        "description": "Description",
+        "link-url": ""
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "layout": "center-below",
+        "background-color": "light",
+        "white-menu-background": true,
+        "bottom-border": true,
+        "white-text": false,
+        "hover-disabled": true,
+        "sticky-enabled": false,
+        "hide-on-scroll": true,
+        "reduce-height": true,
+        "overlap-behavior": "center-below",
+        "logo": "{{ shop.brand.logo }}",
+        "logo-height": 45,
+        "mobile-logo-height": 20,
+        "transparent-enabled": false,
+        "transparent-white-text": true,
+        "menu": "main-menu",
+        "search-enabled": true,
+        "icons-enabled": true,
+        "highlight-item": "Sale",
+        "highlight-color": "#d02e2e",
+        "modal-item": "",
+        "modal-content": "",
+        "modal-background-color": "none",
+        "modal-white-text": false,
+        "show-region-selector": false,
+        "show-locale-selector": true
+      }
+    },
+    "custom_liquid_nByYgq": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "none",
+        "background-color": "none",
+        "white-text": false,
+        "text-alignment": "center",
+        "container-width": "4",
+        "custom-liquid": "<!-- GOOGLE FONT -->\n<link href=\"https://fonts.googleapis.com/css2?family=Figtree:wght@500&display=swap\" rel=\"stylesheet\">\n\n<div class=\"eg-trust-bar\">\n  <div class=\"eg-trust-track\">\n    <div class=\"eg-trust-inner\">\n      <span>🚚 Free delivery orders over 249 AED</span>\n      <span>⚡ 2-hours Dubai Delivery (20:30 Mon–Sun)</span>\n      <span>🎁 Free Samples & Gifts</span>\n      <span>💳 Pay in 4 with – 0% Interest</span>\n\n      <!-- DUPLICATE ITEMS FOR SMOOTH LOOP -->\n      <span>🚚 Free delivery orders over 249 AED</span>\n      <span>⚡ 2-hours Dubai Delivery (20:30 Mon–Sun)</span>\n      <span>🎁 Free Samples & Gifts</span>\n      <span>💳 Pay in 4 with – 0% Interest</span>\n    </div>\n  </div>\n</div>\n\n<style>\n/* REMOVE EXTRA SPACING */\n.custom-liquid--root {\n  overflow-x: hidden;\n}\n\n.shopify-section:has(.eg-trust-bar) {\n  margin: 0 !important;\n  padding: 0 !important;\n}\n\n/* FULL WIDTH BAR */\n.eg-trust-bar {\n  position: relative;\n  left: 50%;\n  right: 50%;\n  margin-left: -50vw;\n  margin-right: -50vw;\n  width: 100vw;\n  background:#BE6345;\n  overflow: hidden;\n}\n\n/* TRACK */\n.eg-trust-track {\n  width: 100%;\n  overflow: hidden;\n}\n\n/* SCROLLING CONTENT */\n.eg-trust-inner {\n  display: flex;\n  gap: 100px;\n  padding: 10px 0;\n  white-space: nowrap;\n  animation: eg-scroll 18s linear infinite;\n\n  /* FIGTREE TYPOGRAPHY */\n  font-family: 'Figtree', sans-serif;\n  font-style: normal;\n  font-weight: 500;\n  font-size: 14px;\n  line-height: 30px;\n  color: rgb(255, 255, 255);\n}\n\n/* SCROLL ANIMATION (RIGHT → LEFT) */\n@keyframes eg-scroll {\n  0% {\n    transform: translateX(0);\n  }\n  100% {\n    transform: translateX(-50%);\n  }\n}\n\n/* MOBILE */\n@media (max-width: 768px) {\n  .eg-trust-inner {\n    font-size: 12px;\n    gap: 40px;\n  }\n\n  .custom-liquid--root {\n    margin: 0 !important;\n    padding: 0 !important;\n  }\n}\n</style>",
+        "mobile-full-width": false,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    }
+  },
+  "order": [
+    "announcement",
+    "split-announcements",
+    "header",
+    "custom_liquid_nByYgq"
+  ]
+}

@@ -1,0 +1,147 @@
+{% schema %}
+{
+  "name": "Interactive Dual Banner",
+  "tag": "section",
+  "max_blocks": 2,
+  "blocks": [
+    {
+      "type": "banner_block",
+      "name": "Banner Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Block Image"
+        },
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline",
+          "default": "Block Headline"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Block subheading text"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Learn More"
+        },
+        {
+          "type": "color",
+          "id": "button_bg_color",
+          "label": "Button Background Color",
+          "default": "#1a1a1a"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button Text Color",
+          "default": "#ffffff"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dual Hover Banner"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="dual-banner-wrapper">
+  {% for block in section.blocks %}
+    <div class="dual-banner-block" style="background-image: url({{ block.settings.image | image_url: width: 1200 }});">
+      <div class="banner-content">
+        {% if block.settings.headline != blank %}
+          <h2>{{ block.settings.headline }}</h2>
+        {% endif %}
+        {% if block.settings.subheading != blank %}
+          <p>{{ block.settings.subheading }}</p>
+        {% endif %}
+        {% if block.settings.link != blank and block.settings.button_text != blank %}
+          <a href="{{ block.settings.link }}" class="banner-button"
+             style="background-color: {{ block.settings.button_bg_color }}; color: {{ block.settings.button_text_color }};">
+            {{ block.settings.button_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+  .dual-banner-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+
+  .dual-banner-block {
+    flex: 1;
+    min-height: 500px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: flex 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dual-banner-wrapper:hover .dual-banner-block {
+    flex: 1;
+  }
+
+  .dual-banner-block:hover {
+    flex: 2;
+  }
+
+  .banner-content {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    max-width: 90%;
+  }
+
+  .banner-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .banner-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .banner-button {
+    display: inline-block;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  @media screen and (max-width: 768px) {
+    .dual-banner-wrapper {
+      flex-direction: column;
+    }
+    .dual-banner-block {
+      flex: none;
+      width: 100%;
+    }
+  }
+</style>
+

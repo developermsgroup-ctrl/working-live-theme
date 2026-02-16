@@ -1,0 +1,103 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "aside",
+  "name": "Overlay Group",
+  "sections": {
+    "popup": {
+      "type": "popup",
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "background-color": "dark",
+            "translucent": true,
+            "white-text": true,
+            "position": "right",
+            "text-alignment": "center",
+            "heading": "Your Glow Crew Awaits – Join Today and Get 10% Off! with code: GLOW10",
+            "description": "<p>Glow Together, Save Together – 10% Off When You Join<br/><br/></p>",
+            "social-title": "Sign Up NOW!",
+            "social-enabled": true,
+            "delay": 2,
+            "show-at-bottom": false,
+            "days-range": 1,
+            "referrer-enabled": false,
+            "referrer-url": "",
+            "page-enabled": false,
+            "page-url": ""
+          }
+        },
+        "small-promotion": {
+          "type": "small-promotion",
+          "settings": {
+            "background-color": "dark",
+            "translucent": true,
+            "white-text": true,
+            "heading-type": "paragraph",
+            "position": "left",
+            "heading": "Get 10% off on all order with code: GLOW10",
+            "delay": 3,
+            "show-at-bottom": true,
+            "days-range": 7,
+            "referrer-enabled": false,
+            "referrer-url": "",
+            "page-enabled": false,
+            "page-url": "shopify://collections",
+            "scroll-text": true,
+            "animation-speed": 7.5,
+            "mobile-scroll-text": true,
+            "mobile-animation-speed": 7.5
+          }
+        },
+        "consent-tracking": {
+          "type": "consent-tracking",
+          "settings": {
+            "background-color": "dark",
+            "translucent": true,
+            "white-text": true,
+            "position": "left",
+            "text-alignment": "center",
+            "heading": "Cookies",
+            "description": "<p>We use cookies and similar technologies to provide the best experience on our website. Refer to our Privacy Policy for more information.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "newsletter",
+        "small-promotion",
+        "consent-tracking"
+      ],
+      "settings": {
+        "limit": true
+      }
+    },
+    "age-verification": {
+      "type": "age-verification",
+      "disabled": true,
+      "settings": {
+        "background-color": "dark",
+        "translucent": true,
+        "white-text": true,
+        "heading": "Confirm your age",
+        "description": "<p>Are you 18 years old or older?</p>",
+        "decline-text": "No I'm not",
+        "approve-text": "Yes I am",
+        "declined-heading": "Come back when you're older",
+        "declined-description": "<p>Sorry, the content of this store can't be seen by a younger audience. Come back when you're older.</p>",
+        "return-text": "Oops, I entered incorrectly"
+      }
+    }
+  },
+  "order": [
+    "popup",
+    "age-verification"
+  ]
+}

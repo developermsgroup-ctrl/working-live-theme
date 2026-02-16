@@ -1,0 +1,133 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+
+  assign change_t = 'products.change' | t
+  assign button_text = 'products.out_of_stock' | t
+  assign button_text = 'products.out_of_stock' | t
+  if current_variant.available
+    assign button_text = 'products.add_to_cart' | t
+  endif
+%}
+
+<product-buy-buttons-element
+  class="product-buy-buttons--root"
+  data-id="{{ id }}"
+  data-cart-type="{{ settings.cart--type }}"
+  data-translations="{{ translations | escape }}"
+  data-container="block"
+>
+  {{- form | payment_terms -}}
+
+  {%- if request.page_type != "password" -%}
+    <button
+      class="product-buy-buttons--primary"
+      data-enabled="true"
+      aria-busy="false"
+      data-text="{{ button_text }}"
+      {% if smart_payment_enabled and product.selling_plan_groups == empty %}
+        data-item="secondary-button"
+      {% else %}
+        data-item="button"
+      {% endif %}
+      {% unless settings.transitions--buttons %}
+        data-transition-button
+      {% endunless %}
+      {%- unless current_variant.available -%}
+        disabled
+      {%- endunless -%}
+    >
+      <span class="product-buy-buttons--cta-text">
+        {{- button_text -}}
+      </span>
+      <span class="product-buy-buttons--spinner">
+        {%- render 'icons', icon: 'spinner' -%}
+      </span>
+    </button>
+
+    {%- if smart_payment_enabled and product.available and product.selling_plan_groups == empty -%}
+      <div
+        class="product-buy-buttons--smart"
+        {%- if current_variant.available -%}
+          aria-hidden="false"
+        {%- else -%}
+          aria-hidden="true"
+        {%- endif -%}
+        {% unless settings.transitions--buttons %}
+          data-transition-button
+        {% endunless %}
+      >
+        {{- form | payment_button -}}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if sticky_cart_enabled -%}
+    <div
+      class="product-buy-buttons--drawer"
+      data-mq="small"
+      aria-hidden="true"
+      tabindex="-1"
+    >
+      <div class="product-buy-buttons--drawer-info-container">
+        <div class="product-buy-buttons--drawer-info">
+          <div data-item="paragraph">
+            <strong>{{- product.title -}}</strong>
+          </div>
+
+          {%- unless product.has_only_default_variant -%}
+            <div class="product-buy-buttons--drawer-variant" data-item="nav-text">
+              {{- current_variant.title -}}
+            </div>
+          {%- endunless -%}
+        </div>
+
+        {%- unless product.has_only_default_variant -%}
+          <button class="product-buy-buttons--drawer-change" type="button" data-item="block-link">
+            <span>{{- change_t -}}</span>
+          </button>
+        {%- endunless -%}
+      </div>
+
+      <button
+        class="product-buy-buttons--primary"
+        data-enabled="true"
+        aria-busy="false"
+        data-text="{{ button_text }}"
+        data-item="button"
+        {% unless settings.transitions--buttons %}
+          data-transition-button
+        {% endunless %}
+        {%- unless current_variant.available -%}
+          disabled
+        {%- endunless -%}
+      >
+        <span class="product-buy-buttons--cta-text">
+          {{- button_text -}}
+        </span>
+        <span class="product-buy-buttons--spinner">
+          {%- render 'icons', icon: 'spinner' -%}
+        </span>
+      </button>
+    </div>
+  {%- endif %}
+
+  <input
+    type="hidden"
+    class="product-buy-buttons--input"
+    name="id"
+    data-id="{{ current_variant.id }}"
+    data-sku="{{ current_variant.sku }}"
+    data-management="{{ current_variant.inventory_management }}"
+    data-policy="{{ current_variant.inventory_policy }}"
+    data-quantity="{{ current_variant.inventory_quantity | default: 0 }}"
+    value="{{ current_variant.id }}"
+  >
+
+  <script type="application/json">
+    {
+      "add_to_cart": "{{ "products.add_to_cart" | t }}",
+      "out_of_stock": "{{ "products.out_of_stock" | t }}",
+      "unavailable": "{{ "products.unavailable" | t }}"
+    }
+  </script>
+</product-buy-buttons-element>

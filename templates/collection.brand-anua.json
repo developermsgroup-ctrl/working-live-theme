@@ -1,0 +1,206 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "settings": {
+        "spacing-above": "half",
+        "spacing-below": "none",
+        "show-title": true,
+        "heading-type": "section-heading",
+        "heading-alignment": "center",
+        "show-description": true,
+        "description-alignment": "centered-outside",
+        "white-text": false,
+        "show-image": false,
+        "use-image-fallback": false,
+        "image-display-type": "small",
+        "aspect-ratio": 56,
+        "mobile-image-display-type": "medium",
+        "mobile-aspect-ratio": 32,
+        "text-style": "none",
+        "overlay-style": "darken-bottom",
+        "parallax-enabled": false,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "none"
+      }
+    },
+    "image_with_text_HRrixJ": {
+      "type": "image-with-text",
+      "disabled": true,
+      "name": "Image with text",
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "none",
+        "background-color": "none",
+        "container-width": "6",
+        "white-text": true,
+        "overlap": false,
+        "heading-type": "section-heading",
+        "text-position": "overlay",
+        "text-horizontal-alignment": "center",
+        "text-vertical-alignment": "center",
+        "text-width": "medium",
+        "text-style": "none",
+        "text-background-color": "transparent",
+        "image-display-type": "aspect-ratio",
+        "aspect-ratio": 24,
+        "overlay-style": "none",
+        "parallax-enabled": false,
+        "image": "{{ collection.metafields.custom.brand_banner.value }}",
+        "overline": "",
+        "title": "{{ collection.metafields.custom.banner_title.value }}",
+        "highlight-type": "italic",
+        "highlight-color": "#ffdd66",
+        "highlight-text": "#000000",
+        "description": "",
+        "link-url": "",
+        "link-text": "",
+        "mobile-full-width": true,
+        "mobile-spacing-above": "none",
+        "mobile-spacing-below": "none",
+        "mobile-overlay": true,
+        "mobile-hide-description": true,
+        "mobile-image-display-type": "aspect-ratio",
+        "mobile-aspect-ratio": 32,
+        "mobile-text-alignment": "center"
+      }
+    },
+    "navigation": {
+      "type": "collection-navigation",
+      "settings": {
+        "spacing-above": "half",
+        "spacing-below": "none",
+        "show-browse-button": true,
+        "show-sort-button": true,
+        "show-refine-button": true,
+        "show-layout-buttons": true,
+        "show-collections-list": true,
+        "custom-list-collections": "",
+        "show-sort-list": true,
+        "show-refine-list": true,
+        "swatches": "circle",
+        "show-search-link": true,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "none"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "blocks": {
+        "grid-promo-1": {
+          "type": "promotion",
+          "settings": {
+            "position": 2,
+            "promo-width": "2",
+            "heading-type": "featured-heading",
+            "text-horizontal-alignment": "center",
+            "text-vertical-alignment": "center",
+            "text-width": "medium",
+            "text-style": "none",
+            "background-color": "none",
+            "text-background-color": "transparent",
+            "border-type": "thick",
+            "overlay-style": "darken-bottom",
+            "parallax-enabled": false,
+            "white-text": true,
+            "image": "shopify://shop_images/anua.webp",
+            "overline": "",
+            "title": "Anua",
+            "highlight-type": "italic",
+            "highlight-color": "#ffdd66",
+            "highlight-text": "#000000",
+            "description": "<p><strong>Anua</strong> is a Korean skincare brand known for its gentle, natural, and minimalist formulas that focus on calming and strengthening the skin.</p>",
+            "link-url": "",
+            "link-text": "",
+            "mobile-hide-description": false,
+            "mobile-text-alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "grid-promo-1"
+      ],
+      "settings": {
+        "spacing-above": "half",
+        "spacing-below": "full",
+        "products-per-row--desktop": 4,
+        "products-per-row--mobile": "2",
+        "number-of-rows": 4,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    },
+    "recent-products": {
+      "type": "recent-products",
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "full",
+        "background-color": "none",
+        "white-text": false,
+        "heading-alignment": "center",
+        "heading": "Recently viewed",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    },
+    "footer-promo": {
+      "type": "image-with-text",
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "none",
+        "background-color": "none",
+        "container-width": "6",
+        "white-text": true,
+        "overlap": false,
+        "heading-type": "featured-heading",
+        "text-position": "overlay",
+        "text-horizontal-alignment": "center",
+        "text-vertical-alignment": "center",
+        "text-width": "medium",
+        "text-style": "none",
+        "text-background-color": "transparent",
+        "image-display-type": "medium",
+        "aspect-ratio": 56,
+        "overlay-style": "darken-bottom",
+        "parallax-enabled": false,
+        "image": "shopify://shop_images/NASHI_BANNER_eb4d3f39-338f-439a-ad68-786157fe0b70.jpg",
+        "overline": "",
+        "title": "SEE COLLECTIONS",
+        "highlight-type": "italic",
+        "highlight-color": "#ffdd66",
+        "highlight-text": "#000000",
+        "description": "",
+        "link-url": "shopify://collections/nashi-argan",
+        "link-text": "SHOP NOW!",
+        "mobile-full-width": true,
+        "mobile-spacing-above": "none",
+        "mobile-spacing-below": "none",
+        "mobile-overlay": true,
+        "mobile-hide-description": false,
+        "mobile-image-display-type": "original",
+        "mobile-aspect-ratio": 134,
+        "mobile-text-alignment": "center"
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "image_with_text_HRrixJ",
+    "navigation",
+    "main",
+    "recent-products",
+    "footer-promo"
+  ]
+}

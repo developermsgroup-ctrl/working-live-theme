@@ -1,0 +1,196 @@
+<x-menu-element
+  class="x-menu"
+  aria-hidden="false"
+  data-mq="medium-large"
+  style="--highlight-color:{{ highlight_color }};"
+>
+  <ul class="x-menu--level-1--container">
+    {%- comment -%} Level 1 {%- endcomment -%}
+    {%- assign list_lvl_1 = handle -%}
+    {%- for link_1 in linklists[list_lvl_1].links -%}
+      {%- liquid
+        assign menu_blocks = blank
+        assign current_menu_item = link_1.handle
+        assign menu_id = 'x-menu_' | append: current_menu_item
+
+        for block in blocks
+          assign block_menu_item = block.settings.menu-item | handleize
+          if block_menu_item == current_menu_item
+            capture menu_blocks
+              unless menu_blocks == blank
+                echo menu_blocks
+              endunless
+
+              render 'menu-block', menu_block: block, location: 'x-menu'
+            endcapture
+          endif
+        endfor
+
+        assign megamenu = false
+        if link_1.levels > 1 or menu_blocks != blank
+          assign megamenu = true
+        endif
+
+        assign has_menu = false
+        if link_1.links != blank or menu_blocks != blank
+          assign has_menu = true
+        endif
+
+        capture link_text
+          echo '<span class="x-menu--level-1--text">'
+            echo link_1.title
+            if has_menu
+              render 'icons', icon: 'chevron-down'
+            endif
+          echo '</span>'
+        endcapture
+      -%}
+
+      <li
+        class="x-menu--level-1--link"
+        data-depth="{{ link_1.levels | plus: 1 }}"
+        data-megamenu="{{ megamenu }}"
+        {% if highlight_item == current_menu_item %}
+          data-highlight="true"
+        {% endif %}
+      >
+        {%- if modal_item == current_menu_item -%}
+          <modal-trigger
+            data-id="header-modal"
+            data-item="nav-text"
+            tabindex="0"
+            aria-haspopup="true"
+          >
+            {{- link_text -}}
+          </modal-trigger>
+        {%- else -%}
+          <a
+            href="{{ link_1.url }}"
+            data-item="nav-text"
+            {% if has_menu %}
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="{{ menu_id }}"
+            {% endif %}
+          >
+            {{- link_text -}}
+          </a>
+        {%- endif -%}
+
+        {%- comment -%} Level 2 {%- endcomment -%}
+        {%- if has_menu -%}
+          {%- liquid
+            assign add_transition = false
+            if megamenu
+              unless settings.transitions--other
+                assign add_transition = true
+              endunless
+            endif
+          -%}
+
+          <div
+            class="x-menu--level-2--container"
+            id="{{ menu_id }}"
+            aria-hidden="true"
+            data-background-color="{{ bg_color }}"
+            data-megamenu="{{ megamenu }}"
+            data-text-color="{{ text_color }}"
+            {% if add_transition %}
+              data-transition-container="{{ menu_id }}"
+              data-transition-type="fade-in"
+              data-transition-cascade="horizontal"
+              data-transition-cascade-interval="200"
+            {% endif %}
+          >
+            {%- unless link_1.levels == 0 -%}
+              {%- liquid
+                assign list_lvl_2 = link_1.handle
+                assign single_parents = blank
+                assign multi_parents = blank
+              -%}
+
+              {%- for link_2 in linklists[list_lvl_2].links -%}
+                {%- capture multi_parents -%}
+                  {%- unless multi_parents == blank -%}
+                    {{- multi_parents -}}
+                  {%- endunless -%}
+
+                  {%- unless link_2.links == blank -%}
+                    <li class="x-menu--level-2--link">
+                      <a href="{{ link_2.url }}" data-item="nav-text">
+                        {{- link_2.title -}}
+                      </a>
+
+                      {%- comment -%} Level 3 {%- endcomment -%}
+
+                      {%- if link_2.links != blank -%}
+                        <ul class="x-menu--level-3--container">
+                          {%- assign list_lvl_3 = link_2.handle -%}
+                          {%- for link_3 in linklists[list_lvl_3].links -%}
+                            <li class="x-menu--level-3--link">
+                              <a href="{{ link_3.url }}" data-item="sub-nav-text">
+                                {{- link_3.title -}}
+                              </a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      {%- endif -%}
+                      {%- comment -%} End Level 3 {%- endcomment -%}
+                    </li>
+                  {%- endunless -%}
+                {%- endcapture -%}
+
+                {%- capture single_parents -%}
+                  {%- unless single_parents == blank -%}
+                    {{- single_parents -}}
+                  {%- endunless -%}
+
+                  {%- if link_2.links == blank -%}
+                    <li class="x-menu--level-2--link">
+                      <a
+                        href="{{ link_2.url }}"
+                        data-item="{% unless megamenu %}sub-{% endunless %}nav-text"
+                      >
+                        {{- link_2.title -}}
+                      </a>
+                    </li>
+                  {%- endif -%}
+                {%- endcapture -%}
+              {%- endfor -%}
+
+              {%- unless single_parents == blank and multi_parents == blank -%}
+                <div class="x-menu--level-2--wrapper">
+                  {%- unless single_parents == blank -%}
+                    <ul
+                      class="x-menu--level-2--list"
+                      data-single-parents="true"
+                      {% if add_transition %}
+                        data-transition-item="{{ menu_id }}"
+                      {% endif %}
+                    >
+                      {{- single_parents -}}
+                    </ul>
+                  {%- endunless -%}
+
+                  {%- unless multi_parents == blank -%}
+                    <ul
+                      class="x-menu--level-2--list"
+                      {% if add_transition %}
+                        data-transition-item="{{ menu_id }}"
+                      {% endif %}
+                    >
+                      {{- multi_parents -}}
+                    </ul>
+                  {%- endunless -%}
+                </div>
+              {%- endunless -%}
+            {%- endunless -%}
+
+            {{- menu_blocks -}}
+          </div>
+        {%- endif -%}
+        {%- comment -%} End Level 2 {%- endcomment -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+</x-menu-element>

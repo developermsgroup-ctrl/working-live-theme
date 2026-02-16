@@ -1,0 +1,42 @@
+{% comment %} Aspect ratio needs at least one decimal {% endcomment %}
+{%- liquid
+  assign placeholder = type
+  assign aspect_ratio = aspect_ratio | default: 1.45
+  assign mobile_aspect_ratio = mobile_aspect_ratio | default: aspect_ratio | round: 2
+  assign mobile_overlay_style = mobile_overlay_style | default: overlay_style
+  assign display_type = display_type | default: 'aspect-ratio'
+  assign mobile_display_type = mobile_display_type | default: display_type
+
+  if placeholder_index
+    capture placeholder
+      echo type | append: '-' | append: placeholder_index
+    endcapture
+  endif
+-%}
+
+{%- if parallax -%}
+  <scroll-progress class="placeholder--scroll-progress">
+{%- endif -%}
+
+<placeholder-element
+  class="placeholder--root {{ class }}"
+  data-background="{{ background }}"
+  data-display-type="{{ display_type }}"
+  data-full-width="{{ full_width }}"
+  data-mobile-display-type="{{ mobile_display_type }}"
+  data-mobile-full-width="{{ mobile_full_width }}"
+  data-mobile-overlay-style="{{ mobile_overlay_style }}"
+  data-overlay-style="{{ overlay_style }}"
+  data-parallax="{{ parallax }}"
+  data-transition-item="placeholder"
+  data-transition-type="stroke"
+  style="--aspect-ratio:{{ aspect_ratio }};--mobile-aspect-ratio:{{ mobile_aspect_ratio }};"
+>
+  <div class="placeholder--container">
+    {{- placeholder | placeholder_svg_tag -}}
+  </div>
+</placeholder-element>
+
+{%- if parallax -%}
+  </scroll-progress>
+{%- endif -%}

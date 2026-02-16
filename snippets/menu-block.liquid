@@ -1,0 +1,182 @@
+{%- liquid
+  assign transition_id = location | append: '_' | append: menu_block.settings.menu-item | handleize
+-%}
+
+{%- if menu_block.type == 'image' -%}
+  {%- liquid
+    assign aspect_ratio = 100.0 | divided_by: menu_block.settings.aspect-ratio
+    assign description = menu_block.settings.description
+    assign display_type = menu_block.settings.image-display-type
+    assign mobile_aspect_ratio = 100.0 | divided_by: menu_block.settings.mobile-aspect-ratio
+    assign mobile_display_type = menu_block.settings.mobile-image-display-type
+    assign link_url = menu_block.settings.link-url
+  -%}
+
+  <div
+    class="menu-block--image-wrapper"
+    {% unless settings.transitions--other %}
+      data-transition-item="{{ transition_id }}"
+    {% endunless %}
+    {{ menu_block.shopify_attributes }}
+  >
+    {%- unless link_url == blank -%}
+      <a href="{{ link_url }}">
+    {%- endunless -%}
+
+    <div
+      class="menu-block--image"
+      {% unless settings.transitions--image %}
+        data-transition-item
+        data-transition-type="zoom-in"
+        data-transition-trigger="hover"
+      {% endunless %}
+    >
+      {%- if menu_block.settings.image == blank -%}
+        {%-
+          render 'placeholder',
+          type: 'collection',
+          placeholder_index: 1,
+          display_type: display_type,
+          aspect_ratio: aspect_ratio,
+          mobile_display_type: mobile_display_type,
+          mobile_aspect_ratio: mobile_aspect_ratio
+        -%}
+      {%- else -%}
+        {%-
+          render 'image',
+          image: menu_block.settings.image,
+          aspect_ratio: aspect_ratio,
+          display_type: display_type,
+          loading: 'lazy',
+          mobile_aspect_ratio: mobile_aspect_ratio,
+          mobile_display_type: mobile_display_type,
+          mobile_image: menu_block.settings.mobile-image
+        -%}
+      {%- endif -%}
+    </div>
+
+    {%- unless description == blank -%}
+      <div class="menu-block--description" data-item="sub-nav-text">
+        {{ description }}
+      </div>
+    {%- endunless -%}
+
+    {%- unless link_url == blank -%}
+      </a>
+    {%- endunless -%}
+  </div>
+{%- elsif menu_block.type == 'blog' -%}
+  {%- liquid
+    assign blog = blogs[menu_block.settings.blog]
+    assign image_size = menu_block.settings.image-size
+    assign selected_tag = menu_block.settings.tag-select | downcase | escape
+    assign show_cta = menu_block.settings.show-cta
+    assign show_date = menu_block.settings.show-date
+    assign show_excerpt = menu_block.settings.show-excerpt
+
+    assign grid_direction = 'horizontal'
+    if location == 'y-menu'
+      assign grid_direction = 'vertical'
+    endif
+  -%}
+
+  <div
+    class="menu-block--blog"
+    data-aspect-ratio="{{ image_size }}"
+    {{ menu_block.shopify_attributes }}
+  >
+    {%-
+      render 'blog-grid',
+      section: menu_block,
+      alignment: 'center',
+      blog: blog,
+      grid_direction: grid_direction,
+      mobile_media_layout: 'grid',
+      loading: 'lazy',
+      selected_tag: selected_tag,
+      show_cta: show_cta,
+      show_date: show_date,
+      show_excerpt: show_excerpt,
+      transition_id: transition_id
+    -%}
+  </div>
+
+{%- elsif menu_block.type == 'full-width-promo' -%}
+  {%- liquid
+    assign aspect_ratio = 100.0 | divided_by: menu_block.settings.aspect-ratio
+    assign display_type = menu_block.settings.image-display-type
+    assign mobile_display_type = menu_block.settings.mobile-image-display-type
+    assign mobile_aspect_ratio = 100.0 | divided_by: menu_block.settings.mobile-aspect-ratio
+  -%}
+
+  <div class="menu-block--featured" {{ menu_block.shopify_attributes }}>
+    {%-
+      render 'featured-content',
+      white_text: menu_block.settings.white-text,
+      description: menu_block.settings.description,
+      heading_type: menu_block.settings.heading-type,
+      highlight_color: menu_block.settings.highlight-color,
+      highlight_text: menu_block.settings.highlight-text,
+      highlight_type: menu_block.settings.highlight-type,
+      id: transition_id,
+      image: menu_block.settings.image,
+      image_display_type: display_type,
+      image_aspect_ratio: aspect_ratio,
+      link_text: menu_block.settings.link-text,
+      link_url: menu_block.settings.link-url,
+      loading: 'lazy',
+      mobile_hide_description: menu_block.settings.mobile-hide-description,
+      mobile_image: menu_block.settings.mobile-image,
+      mobile_image_display_type: mobile_display_type,
+      mobile_image_aspect_ratio: mobile_aspect_ratio,
+      mobile_text_alignment: menu_block.settings.mobile-text-alignment,
+      mobile_overlay: menu_block.settings.mobile-overlay,
+      overlap: menu_block.settings.overlap,
+      overlay_style: menu_block.settings.overlay-style,
+      overline: menu_block.settings.overline,
+      parallax_enabled: false,
+      sizes: '100vw',
+      text_style: menu_block.settings.text-style,
+      text_bg_color: menu_block.settings.text-background-color,
+      text_position: menu_block.settings.text-position,
+      text_width: menu_block.settings.text-width,
+      title: menu_block.settings.title,
+      text_x_alignment: menu_block.settings.text-horizontal-alignment,
+      text_y_alignment: menu_block.settings.text-vertical-alignment
+    -%}
+  </div>
+
+{%- elsif menu_block.type == 'product-list' -%}
+  {%- liquid
+    assign product_list = menu_block.settings.product-list
+    assign columns = product_list.count | at_least: 1 | at_most: 2
+  -%}
+
+  {%- capture sizes -%}
+    (max-width: 767px) 50vw, {{ 100 | divided_by: columns }}vw
+  {%- endcapture %}
+
+  <div
+    class="menu-block--products"
+    {% unless settings.transitions--other %}
+      data-transition-container="{{ transition_id }}"
+      data-transition-type="fade-in"
+      {% unless location == 'y-menu' %}
+        data-transition-cascade="horizontal"
+        data-transition-cascade-interval="200"
+      {% endunless %}
+    {% endunless %}
+    {{ menu_block.shopify_attributes }}
+  >
+    {%- liquid
+      if product_list == blank
+        render 'product-card', onboarding: true, placeholder_index: 1, transition_id: transition_id
+      else
+        for product in product_list
+          render 'product-card', product_item: product, transition_id: transition_id, sizes: sizes, loading: 'lazy'
+        endfor
+      endif
+    -%}
+  </div>
+
+{%- endif -%}

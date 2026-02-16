@@ -1,0 +1,32 @@
+<a
+  href="{{ routes.root_url }}"
+  title="{{ shop.name }}"
+  itemscope
+  itemprop="url"
+  itemtype="https://schema.org/Organization"
+>
+  {%- if logo -%}
+    {%- liquid
+      assign width = height | times: logo.aspect_ratio | round
+      assign twice_width = width | times: 2
+      assign mobile_width = mobile_height | times: logo.aspect_ratio | round
+
+      capture logo_vars
+        echo '--width:' | append: width | append: 'px;'
+        echo '--mobile-width:' | append: mobile_width | append: 'px;'
+      endcapture
+    -%}
+
+    {{-
+      logo |
+      image_url: width: twice_width |
+      image_tag: itemprop: "logo", style: logo_vars, fetchpriority: 'high', loading: 'eager'
+    -}}
+
+  {%- else -%}
+    <div data-item="section-heading">
+      {{- shop.name -}}
+    </div>
+
+  {%- endif -%}
+</a>

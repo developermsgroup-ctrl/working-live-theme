@@ -1,0 +1,43 @@
+{%- liquid
+  assign next_t = 'general.a11y.next' | t
+  assign previous_t = 'general.a11y.previous' | t
+-%}
+
+{%- unless default_total == 1 -%}
+  <div
+    class="carousel-navigation"
+    data-id="{{ id }}"
+    {% if mobile_only %}
+      data-mq="small"
+    {% endif %}
+  >
+    <button
+      class="carousel-navigation--prev"
+      type="button"
+      aria-disabled="true"
+      aria-label="{{ previous_t }}"
+    >
+      {%- render 'icons', icon: 'chevron-left' -%}
+    </button>
+
+    <span
+      class="carousel-navigation--current"
+      data-item="paragraph"
+      data-value="1"
+    ></span>
+    <span
+      class="carousel-navigation--total"
+      data-item="paragraph"
+      data-value="{{ default_total }}"
+    ></span>
+
+    <button
+      class="carousel-navigation--next"
+      type="button"
+      aria-disabled="false"
+      aria-label="{{ next_t }}"
+    >
+      {%- render 'icons', icon: 'chevron-right' -%}
+    </button>
+  </div>
+{%- endunless -%}

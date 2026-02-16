@@ -1,0 +1,51 @@
+{%- comment -%}
+  Collection Layout Wrapper
+  Creates a 2-column layout with filters on the left and products on the right
+{%- endcomment -%} 
+
+{{ 'collection-filters-sidebar.css' | asset_url | stylesheet_tag }}
+
+<div class="collection-layout--wrapper collection-page--with-sidebar" data-section-id="{{ section.id }}" data-section-type="collection-layout">
+  
+  {%- comment -%} Desktop Filter Sidebar (Left Column) {%- endcomment -%}
+  <aside class="collection-page--sidebar">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'filters' -%}
+        {%- render 'collection-filters-sidebar-content',
+          collection: collection,
+          block: block
+        -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </aside>
+
+  {%- comment -%} Main Content Area (Right Column) {%- endcomment -%}
+  <main class="collection-page--main">
+    {%- for block in section.blocks -%}
+      {%- unless block.type == 'filters' -%}
+        {{ block.shopify_attributes }}
+      {%- endunless -%}
+    {%- endfor -%}
+    
+    {%- comment -%} This is where the actual collection grid will render {%- endcomment -%}
+    <div id="collection-products-area">
+      {%- comment -%} Content from main-collection section will go here {%- endcomment -%}
+    </div>
+  </main>
+
+</div>
+
+{% schema %}
+{
+  "name": "Collection Layout",
+  "class": "section--collection-layout",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "filters",
+      "name": "Filter Sidebar",
+      "limit": 1
+    }
+  ]
+}
+{% endschema %}

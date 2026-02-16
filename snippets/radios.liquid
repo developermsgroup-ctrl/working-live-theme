@@ -1,0 +1,61 @@
+{% comment %} Usage:
+- Place inside loop of 'option' objects
+- If more than one product is included on one page, include a unique 'id'
+{% endcomment %}
+
+{%- liquid
+  capture radios_name
+    assign option_name = option.name | downcase | remove: ' '
+    echo id | append: '-' | append: option_name
+  endcapture
+-%}
+
+<label
+  class="radios--header"
+  id="{{ radios_name }}"
+  data-item="nav-text"
+>
+  <span>{{ option.name | escape }}</span>
+</label>
+
+<div
+  class="radios--container"
+  role="radiogroup"
+  aria-labelledby="{{ radios_name }}"
+>
+  {%- for value in option.values -%}
+    <label
+      for="{{ radios_name }}-{{ value | downcase | remove: ' ' }}"
+      class="radios--value-button"
+      data-item="secondary-button"
+      data-text="{{ value | escape }}"
+      {% unless value.available %}
+        data-unavailable="true"
+      {% endunless %}
+      {% if value.id %}
+        data-option-value-id="{{ value.id }}"
+        data-option-name="{{ option.name | strip | downcase }}"
+        data-product-url="{{ value.product_url }}"
+      {% endif %}
+    >
+      <div>{{ value | escape }}</div>
+
+      <input
+        class="radios--input"
+        type="radio"
+        id="{{ radios_name }}-{{ value | downcase | remove: ' ' }}"
+        name="{{ radios_name }}"
+        value="{{ value | escape }}"
+        {% if value.id %}
+          data-option-value-id="{{ value.id }}"
+          data-option-name="{{ option.name | strip | downcase }}"
+          data-product-url="{{ value.product_url }}"
+        {% endif %}
+        data-item="radio"
+        {% if value == option.selected_value %}
+          checked
+        {% endif %}
+      />
+    </label>
+  {%- endfor -%}
+</div>

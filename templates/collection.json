@@ -1,0 +1,72 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-header": {
+      "type": "collection-header",
+      "settings": {
+        "spacing-above": "half",
+        "spacing-below": "none",
+        "show-title": true,
+        "heading-type": "section-heading",
+        "heading-alignment": "center",
+        "show-description": false,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "none"
+      }
+    },
+    "filter-layout": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom-liquid": "{{ 'collection-filters-sidebar.css' | asset_url | stylesheet_tag }}\n\n<div class=\"collection-page--with-sidebar\">\n  \n  <aside class=\"collection-page--sidebar\">\n    {% render 'collection-filters-sidebar-content', collection: collection %}\n  </aside>\n\n  <main class=\"collection-page--main\" id=\"collection-main-content\">\n    {{ sections['main'] }}\n  </main>\n  \n</div>",
+        "spacing-above": "none",
+        "spacing-below": "none",
+        "mobile-spacing-above": "none",
+        "mobile-spacing-below": "none"
+      }
+    },
+    "navigation": {
+      "type": "collection-navigation",
+      "settings": {
+        "spacing-above": "half",
+        "spacing-below": "none",
+        "show-browse-button": false,
+        "show-sort-button": true,
+        "show-refine-button": true,
+        "show-layout-buttons": true,
+        "show-collections-list": false,
+        "show-sort-list": true,
+        "show-refine-list": true,
+        "swatches": "circle",
+        "show-search-link": false,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "none"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "spacing-above": "none",
+        "spacing-below": "full",
+        "products-per-row--desktop": 3,
+        "products-per-row--mobile": "2",
+        "number-of-rows": 12,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    }
+  },
+  "order": [
+    "collection-header",
+    "filter-layout",
+    "navigation",
+    "main"
+  ]
+}

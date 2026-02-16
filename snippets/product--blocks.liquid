@@ -1,0 +1,337 @@
+{%- liquid
+  assign add_to_cart_t = 'products.add_to_cart' | t
+
+  assign current_variant = product.selected_or_first_available_variant
+  assign quantity_added = false
+  assign render_size_chart_modal = false
+  assign product_id = section.id | append: '_' | append: product.id
+
+  if onboarding
+    assign title = 'sections.onboarding.product_title' | t
+    assign vendor = 'sections.onboarding.vendor' | t
+  else
+    assign title = product.title
+    assign vendor = product.vendor
+  endif
+-%}
+
+{%- for block in section.blocks -%}
+  {%- liquid
+    assign fit_together = false
+    if block.type == 'collapsible-row'
+      assign fit_together = true
+    elsif block.type == 'complementary-products' and block.settings.collapsible-row-enabled
+      assign fit_together = true
+    elsif block.type == 'description' and block.settings.collapsible-row-enabled
+      assign fit_together = true
+    endif
+  -%}
+
+  <div
+    class="product--block"
+    data-block-type="{{ block.type }}"
+    data-fit-together="{{ fit_together }}"
+    {{- block.shopify_attributes -}}
+  >
+    {%- case block.type -%}
+      {%- when 'overline' -%}
+        <div class="product--block--overline" data-item="overline">
+          {%- liquid
+            if onboarding
+              echo 'sections.onboarding.overline' | t
+            else
+              echo block.settings.overline
+            endif
+          -%}
+        </div>
+
+      {%- when 'heading' -%}
+        <div
+          {% unless settings.transitions--text %}
+            data-transition-item="viewport"
+            data-transition-type="slide-in"
+          {% endunless %}
+        >
+          <h2 class="product--block--heading" data-item="section-heading">
+            {%- unless main_product or onboarding -%}
+              <a href="{{ product.url }}">
+            {%- endunless -%}
+
+            {{- title -}}
+
+            {%- unless main_product or onboarding -%}
+              </a>
+            {%- endunless -%}
+          </h2>
+        </div>
+
+      {%- when 'label' -%}
+        {%- liquid
+          assign off_t = 'products.off' | t
+          assign sale_t = 'products.sale' | t
+          assign out_of_stock_t = 'products.out_of_stock' | t
+
+          assign sold_out_enabled = block.settings.sold-out-enabled
+          assign sale_enabled = block.settings.sale-enabled
+          assign sale_type = block.settings.sale-type
+          assign label_color = block.settings.color
+          assign label_shape = block.settings.shape
+        -%}
+
+        <div
+          class="product--label"
+          data-background-color="{{ label_color }}"
+          data-label-shape="{{ label_shape }}"
+        >
+          {%- liquid
+            if product.available == false and sold_out_enabled
+              echo out_of_stock_t
+
+            elsif sale_enabled and product.compare_at_price > product.price
+              if sale_type == 'text'
+                assign sale_text = sale_t
+              elsif sale_type == 'percent'
+                assign price_diff = product.compare_at_price | minus: product.price
+                assign percent_diff = price_diff | times: 100 | divided_by: product.compare_at_price
+                assign sale_text = percent_diff | append: '% ' | append: off_t
+              endif
+
+              echo sale_text
+            endif
+          -%}
+        </div>
+
+      {%- when 'vendor' -%}
+        <div class="product--block--vendor" data-item="sub-nav-text">
+          <a href="{{ product.vendor | url_for_vendor }}">
+            {{- vendor -}}
+          </a>
+        </div>
+
+      {%- when 'price' -%}
+        {%- if onboarding -%}
+          {%- liquid
+            assign price_t = 'sections.onboarding.price' | t
+            assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,UYU,VES,VND' | split: ','
+
+            if currencies_using_comma_decimals contains cart.currency.iso_code
+              assign price_t = price_t | replace: '.', ','
+            endif
+          -%}
+
+          <div class="product--block--price-wrapper">
+            <span
+              class="product--block--price"
+              data-item="nav-text"
+              {% if white_text %}
+                data-text-color="white"
+              {% else %}
+                data-text-color="gray"
+              {% endif %}
+            >
+              {{- cart.currency.symbol -}}{{- price_t -}}
+            </span>
+          </div>
+        {%- else -%}
+          {%- render 'product-price', product: product, id: product_id -%}
+
+        {%- endif -%}
+
+      {%- when 'low-stock' -%}
+        {%- unless onboarding -%}
+          {%-
+            render 'product-low-stock',
+            current_variant: current_variant,
+            id: product_id,
+            product: product,
+            block_settings: block.settings
+          -%}
+        {%- endunless -%}
+
+      {%- when 'options' -%}
+        {%- unless onboarding -%}
+          {%-
+            render 'product-options',
+            id: product_id,
+            product: product,
+            block_settings: block.settings,
+            main_product: main_product
+          -%}
+
+          {%- liquid
+            if block.settings.size-chart-enabled
+              assign size_chart_option = block.settings.size-chart-option | strip | downcase
+
+              for option in product.options_with_values
+                assign option_name = option.name | strip | downcase
+                if option_name == size_chart_option
+                  if block.settings.size-chart-content == blank
+                    capture size_chart_path
+                      assign size_chart_path_t = 'products.size_chart_path' | t
+                      echo '<code>' | append: size_chart_path_t | append: '</code>'
+                    endcapture
+
+                    assign page_content = 'products.empty_page_content_html' | t: size_chart_path: size_chart_path
+                  else
+                    assign page_content = pages[block.settings.size-chart-content].content
+                  endif
+
+                  assign render_size_chart_modal = true
+                  break
+                endif
+              endfor
+            endif
+          -%}
+        {%- endunless -%}
+
+      {%- when 'buy-buttons' -%}
+        {%- if onboarding -%}
+          <div
+            class="product--block--add-to-cart"
+            data-item="button"
+            data-text="{{ add_to_cart_t }}"
+            {% unless settings.transitions--buttons %}
+              data-transition-button
+            {% endunless %}
+          >
+            <span>{{ add_to_cart_t }}</span>
+          </div>
+
+        {%- else -%}
+          {%-
+            render 'product-buy-buttons',
+            id: product_id,
+            product: product,
+            form: form,
+            sticky_cart_enabled: block.settings.sticky-add-enabled,
+            smart_payment_enabled: block.settings.smart-payment-enabled
+          -%}
+
+        {%- endif -%}
+
+      {%- when 'quantity-selector' -%}
+        {%- liquid
+          assign quantity_added = true
+          render 'quantity-selector', id: product_id, type: 'product'
+        -%}
+
+      {%- when 'unavailable-form' -%}
+        {%- liquid
+          unless onboarding
+            render 'product-unavailable-form', product: product, id: product_id
+          endunless
+        -%}
+
+      {%- when 'rating' -%}
+        {%- render 'product-rating', product: product -%}
+
+      {%- when 'social-sharing' -%}
+        {%-
+          render 'social-icons',
+          align: 'left',
+          mobile_align: 'left',
+          type: 'share',
+          social_settings: block.settings
+        -%}
+
+      {%- when 'pickup' -%}
+        {%- render 'product-pickup', product: product, id: product_id -%}
+
+      {%- when 'sku' -%}
+        {%- render 'product-sku', product: product, id: product_id -%}
+
+      {%- when 'collapsible-row' -%}
+        {%- assign block_id = section.id | append: '--collapsible-row--' | append: forloop.index -%}
+        {%-
+          render 'collapsible-row',
+          description: block.settings.description,
+          heading: block.settings.heading,
+          default_open: block.settings.default-open,
+          page_content: block.settings.page-content,
+          id: block_id
+        -%}
+
+      {%- when 'description' -%}
+        {%- unless product.description == blank -%}
+          <div class="product--block--description" data-item="rte-content">
+            {%- liquid
+              if block.settings.collapsible-row-enabled
+                assign block_id = section.id | append: '-' | append: block.id
+                render 'collapsible-row', heading: block.settings.heading, description: product.description, id: block_id
+              else
+                echo product.description
+              endif
+            -%}
+          </div>
+        {%- endunless -%}
+
+      {%- when 'complementary-products' -%}
+        {%-
+          render 'complementary-products',
+          heading: block.settings.title,
+          max_products: block.settings.max-products,
+          collapsible_row: block.settings.collapsible-row-enabled,
+          product_id: product.id
+        -%}
+
+      {%- when 'icon' -%}
+        {%- liquid
+          assign icon = block.settings.icon
+          assign icon_image = block.settings.icon-image
+          assign icon_width = block.settings.icon-width
+          assign text = block.settings.text
+        -%}
+
+        <div class="product-block--icon-container">
+          {%- if icon_image or icon != 'none' -%}
+            <div class="product-block--icon" style="--width:{{ icon_width }}px;">
+              {%- liquid
+                if icon_image
+                  assign icon_image_width = icon_width | times: 2
+                  echo icon_image | image_url: width: icon_image_width, height: icon_image_width | image_tag: alt: icon_image.alt
+                else
+                  render 'icons', icon: icon
+                endif
+              -%}
+            </div>
+
+            {%- unless text == blank -%}
+              <p data-item="paragraph">
+                {{ text }}
+              </p>
+            {%- endunless -%}
+          {%- endif -%}
+        </div>
+
+      {%- when 'liquid' -%}
+        {{- block.settings.custom-liquid -}}
+
+      {%- when '@app' -%}
+        {%- render block -%}
+
+    {%- endcase -%}
+  </div>
+{%- endfor -%}
+
+{%- unless quantity_added -%}
+  <input type="hidden" name="quantity" value="1" min="1" pattern="[0-9]*" tabindex="-1">
+{%- endunless -%}
+
+{%- if render_size_chart_modal -%}
+  <modal-element
+    class="modal--root"
+    data-id="{{ product_id }}_size-chart"
+    data-background-color="dark"
+    data-translucent="true"
+    data-transition-item="viewport"
+    data-transition-type="fade-in"
+    data-transition-trigger="custom"
+    aria-hidden="true"
+  >
+    <div class="modal--view">
+      <div class="product-size-chart--modal" data-item="rte-content">
+        {{- page_content -}}
+      </div>
+    </div>
+  </modal-element>
+{%- endif -%}

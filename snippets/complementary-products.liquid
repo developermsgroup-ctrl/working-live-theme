@@ -1,0 +1,30 @@
+{%- capture complementary_products_html -%}
+  <product-recommendations-element
+    class="complementary-products--root"
+    data-max-products="{{ max_products }}"
+    data-product-id="{{ product_id }}"
+    data-intent="complementary"
+    aria-hidden="false"
+  >
+    {%- if heading != blank and collapsible_row == false -%}
+      <h3 class="complementary-products--heading" data-item="block-heading">
+        {{- heading -}}
+      </h3>
+    {%- endif -%}
+
+    <div class="complementary-products--container" data-products-container>
+      {%- comment -%}
+        `section/complementary-products.liquid` rendered here via JS
+      {%- endcomment -%}
+    </div>
+  </product-recommendations-element>
+{%- endcapture -%}
+
+{%- liquid
+  if collapsible_row
+    assign id = product_id | append: '--collapsible-row'
+    render 'collapsible-row', heading: heading, description: complementary_products_html, id: id
+  else
+    echo complementary_products_html
+  endif
+-%}

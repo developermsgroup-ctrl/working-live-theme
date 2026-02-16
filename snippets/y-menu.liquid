@@ -1,0 +1,297 @@
+{%- liquid
+  unless menu
+    assign menu = 'main-menu'
+  endunless
+
+  assign list_lvl_1 = menu
+-%}
+
+<y-menu-element class="y-menu" style="--highlight-color:{{ highlight_color }};">
+  <ul
+    class="y-menu--level-1--container"
+    id="y-menu"
+    aria-current="true"
+    {% unless settings.transitions--other %}
+      data-transition-container="y-menu"
+      data-transition-cascade="vertical"
+      data-transition-cascade-interval="100"
+      data-transition-type="slide-right"
+    {% endunless %}
+  >
+    {% comment %} Level 1 {% endcomment %}
+    {%- for link_1 in linklists[list_lvl_1].links -%}
+      {%- liquid
+        assign menu_blocks = blank
+        assign current_menu_item = link_1.handle
+        assign menu_id = 'y-menu_' | append: current_menu_item
+
+        for block in blocks
+          assign block_menu_item = block.settings.menu-item | handleize
+          if block_menu_item == current_menu_item
+            capture menu_blocks
+              unless menu_blocks == blank
+                echo menu_blocks
+              endunless
+
+              render 'menu-block', menu_block: block, location: 'y-menu'
+            endcapture
+          endif
+        endfor
+
+        assign has_sub_menu = false
+        if link_1.links != blank or menu_blocks != blank
+          assign has_sub_menu = true
+        endif
+      -%}
+
+      <li
+        class="y-menu--level-1--link"
+        data-item="nav-text"
+        data-depth="{{ link_1.levels | plus: 1 }}"
+        {% if highlight_item == current_menu_item %}
+          data-highlight="true"
+        {% endif %}
+      >
+        {%- if modal_item == current_menu_item and has_sub_menu == false -%}
+          <modal-trigger
+            data-id="header-modal"
+            data-delay="450"
+            data-item="nav-text"
+            tabindex="0"
+            aria-haspopup="true"
+            {% unless settings.transitions--other %}
+              data-transition-item="y-menu"
+            {% endunless %}
+          >
+            {%- liquid
+              echo link_1.title
+              if has_sub_menu
+                render 'icons', icon: 'chevron-right--small'
+              endif
+            -%}
+          </modal-trigger>
+        {%- else -%}
+          {%- if has_sub_menu -%}
+            <button
+              data-item="nav-text"
+              aria-haspopup="true"
+              aria-expanded="false"
+              aria-controls="{{ menu_id }}"
+              {% unless settings.transitions--other %}
+                data-transition-item="y-menu"
+              {% endunless %}
+            >
+              {%- liquid
+                echo link_1.title
+                render 'icons', icon: 'chevron-right--small'
+              -%}
+            </button>
+
+          {%- else -%}
+            <a
+              href="{{ link_1.url }}"
+              data-item="nav-text"
+              {% unless settings.transitions--other %}
+                data-transition-item="y-menu"
+              {% endunless %}
+            >
+              {{- link_1.title -}}
+            </a>
+          {%- endif -%}
+
+        {%- endif -%}
+
+        {%- comment -%} Level 2 {%- endcomment -%}
+        {%- if has_sub_menu -%}
+          {%- liquid
+            assign parent_link = true
+            if link_1.url == '#' or link_1.url == '/#'
+              assign parent_link = false
+            endif
+          -%}
+
+          <ul
+            class="y-menu--level-2--container"
+            {% if parent_link %}
+              data-depth="2"
+            {% endif %}
+            id="{{ menu_id }}"
+            aria-current="false"
+            {% unless settings.transitions--other %}
+              data-transition-container="{{ menu_id }}"
+              data-transition-cascade="vertical"
+              data-transition-cascade-interval="100"
+              data-transition-type="slide-right"
+            {% endunless %}
+          >
+            <li class="y-menu--back-link">
+              <button
+                data-item="nav-text"
+                aria-controls="y-menu"
+                {% unless settings.transitions--other %}
+                  data-transition-item="{{ menu_id }}"
+                {% endunless %}
+              >
+                {%- render 'icons', icon: 'chevron-left--small' %} {{ 'layout.header.back' | t -}}
+              </button>
+            </li>
+
+            {%- if parent_link -%}
+              <li class="y-menu--parent-link">
+                {%- if modal_item == current_menu_item -%}
+                  <modal-trigger
+                    data-id="header-modal"
+                    data-item="nav-text"
+                    data-delay="450"
+                    tabindex="0"
+                    aria-haspopup="true"
+                    {% unless settings.transitions--other %}
+                      data-transition-item="{{ menu_id }}"
+                    {% endunless %}
+                  >
+                    {{- link_1.title -}}
+                  </modal-trigger>
+                {%- else -%}
+                  <a
+                    href="{{ link_1.url }}"
+                    {% unless settings.transitions--other %}
+                      data-transition-item="{{ menu_id }}"
+                    {% endunless %}
+                  >
+                    {{- link_1.title -}}
+                  </a>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
+
+            {%- assign list_lvl_2 = link_1.handle -%}
+            {%- for link_2 in linklists[list_lvl_2].links -%}
+              {%- assign sub_menu_id = menu_id | append: '_' | append: link_2.handle -%}
+              <li class="y-menu--level-2--link" data-item="nav-text">
+                {%- unless link_2.links == blank -%}
+                  <button
+                    data-item="nav-text"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    aria-controls="{{ sub_menu_id }}"
+                    {% unless settings.transitions--other %}
+                      data-transition-item="{{ menu_id }}"
+                    {% endunless %}
+                  >
+                    {%- liquid
+                      echo link_2.title
+                      render 'icons', icon: 'chevron-right--small'
+                    -%}
+                  </button>
+
+                {%- else -%}
+                  <a
+                    href="{{ link_2.url }}"
+                    data-item="nav-text"
+                    {% unless settings.transitions--other %}
+                      data-transition-item="{{ menu_id }}"
+                    {% endunless %}
+                  >
+                    {{- link_2.title -}}
+                  </a>
+                {%- endunless -%}
+
+                {% comment %} Level 3 {% endcomment %}
+                {%- unless link_2.links == blank -%}
+                  {%- liquid
+                    assign parent_link = true
+                    if link_2.url == '#' or link_2.url == '/#'
+                      assign parent_link = false
+                    endif
+                  -%}
+
+                  <ul
+                    class="y-menu--level-3--container"
+                    {% if parent_link %}
+                      data-depth="3"
+                    {% endif %}
+                    id="{{ sub_menu_id }}"
+                    aria-current="false"
+                    {% unless settings.transitions--other %}
+                      data-transition-container="{{ sub_menu_id }}"
+                      data-transition-cascade="vertical"
+                      data-transition-cascade-interval="100"
+                      data-transition-type="slide-right"
+                    {% endunless %}
+                  >
+                    <li class="y-menu--back-link">
+                      <button
+                        data-item="nav-text"
+                        aria-controls="{{ menu_id }}"
+                        {% unless settings.transitions--other %}
+                          data-transition-item="{{ sub_menu_id }}"
+                        {% endunless %}
+                      >
+                        {%- render 'icons', icon: 'chevron-left--small' %} {{ 'layout.header.back' | t -}}
+                      </button>
+                    </li>
+
+                    {%- if parent_link -%}
+                      <li class="y-menu--parent-link">
+                        {%- if modal_item == current_menu_item -%}
+                          <modal-trigger
+                            data-id="header-modal"
+                            data-item="nav-text"
+                            data-delay="450"
+                            tabindex="0"
+                            aria-haspopup="true"
+                            {% unless settings.transitions--other %}
+                              data-transition-item="{{ sub_menu_id }}"
+                            {% endunless %}
+                          >
+                            {{- link_1.title -}}
+                          </modal-trigger>
+                        {%- else -%}
+                          <a
+                            href="{{ link_2.url }}"
+                            {% unless settings.transitions--other %}
+                              data-transition-item="{{ sub_menu_id }}"
+                            {% endunless %}
+                          >
+                            {{- link_2.title -}}
+                          </a>
+                        {%- endif -%}
+                      </li>
+                    {%- endif -%}
+
+                    {%- assign list_lvl_3 = link_2.handle -%}
+                    {%- for link_3 in linklists[list_lvl_3].links -%}
+                      <li class="y-menu--level-3--link" data-item="nav-text">
+                        <a
+                          href="{{ link_3.url }}"
+                          {% unless settings.transitions--other %}
+                            data-transition-item="{{ sub_menu_id }}"
+                          {% endunless %}
+                        >
+                          {{- link_3.title -}}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+
+                {%- endunless -%}
+
+                {%- comment -%} End Level 3 {%- endcomment -%}
+              </li>
+            {%- endfor -%}
+
+            {%- unless menu_blocks == blank -%}
+              <li class="y-menu--blocks">
+                {{- menu_blocks -}}
+              </li>
+            {%- endunless -%}
+          </ul>
+        {%- endif -%}
+
+        {%- comment -%} End Level 2 {%- endcomment -%}
+      </li>
+    {%- endfor -%}
+  </ul>
+
+  {%- comment -%} End level 1 {%- endcomment -%}
+</y-menu-element>

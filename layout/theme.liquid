@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}" dir="ltr">
+  <head>
+    <meta name="facebook-domain-verification" content="dc6zq2k9tfplnf23wyjy6cwwmhq3jm" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+   
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-539B6D6L');</script>
+<!-- End Google Tag Manager -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Enhance Glow",
+  "provider": {
+    "@type": "Organization",
+    "name": "Enhance Glow",
+    "url": "https://enhanceglow.com/"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue":"5","reviewCount":"2050","bestRating":"5","worstRating":"1"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Enhance Glow",
+  "image": "https://enhanceglow.com/cdn/shop/files/EnhanceGlow-Logo.png?v=1751296323&width=600",
+  "@id": "https://enhanceglow.com/",
+  "url": "https://enhanceglow.com/",
+  "telephone": "+971505854326",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Office 1M-17, Capitol Warehouse, 26th St, Al Marabea Street, Al Quoz 4",
+    "addressLocality": "Dubai",
+    "postalCode": "",
+    "addressCountry": "AE"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "08:00",
+    "closes": "19:00"
+  },
+  "sameAs": [
+    "https://www.facebook.com/shopenhanceglow",
+    "https://x.com/shopenhanceglow",
+    "https://www.youtube.com/@shopenhanceglow"
+  ] 
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Enhance Glow",
+  "url": "https://enhanceglow.com/",
+  "logo": "https://enhanceglow.com/cdn/shop/files/EnhanceGlow-Logo.png?v=1751296323&width=600",
+  "sameAs": [
+    "https://www.facebook.com/shopenhanceglow",
+    "https://x.com/shopenhanceglow",
+    "https://www.youtube.com/@shopenhanceglow"
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Enhance Glow",
+  "alternateName": "Enhance Glow",
+  "url": "https://enhanceglow.com/"
+}
+</script>
+    
+    <!-- Maker theme - Version 10.0.0 by Troop Themes - https://troopthemes.com/ -->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+
+    {%- if canonical_url != blank -%}
+      <link rel="canonical" href="{{ canonical_url }}">
+    {%- endif -%}
+
+    {%- if settings.favicon != blank -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 32 }}" type="image/png">
+      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
+    {%- endif -%}
+
+    {%- liquid
+      render 'preload'
+      render 'meta-tags'
+      render 'css-typography'
+      render 'css-variables'
+      render 'custom-styles'
+    -%}
+
+    {{ 'theme.css' | asset_url | stylesheet_tag: preload: true }}
+    {{ content_for_header }}
+    {%- render 'routes' -%}
+
+    <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
+
+    {%- if request.page_type contains 'customers' -%}
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
+      <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
+    {%- endif -%}
+
+    {%- if request.design_mode -%}
+      <script type="module" src="{{ 'editor-events.min.js' | asset_url }}" defer></script>
+    {%- endif -%}
+  </head>
+
+  <body
+    class="template--{{ template | split: '.' | first | remove: '_' | replace: '/', '--' }}"
+    data-theme-id="765"
+    data-theme-name="Maker"
+    data-theme-version="10.0.0"
+    data-theme-preset="{{ settings.preset }}"
+    data-logged-in="{% if customer %}true{% else %}false{% endif %}"
+  >
+    <!--[if IE]>
+      <div style="text-align:center;padding:72px 16px;">
+        {{ 'general.browser_unsupported' | t }}
+      </div>
+      <style>
+        .layout--viewport { display: none; }
+      </style>
+    <![endif]-->
+
+    <a data-item="a11y-button" href='#main_content' id="a11y_skip">
+      {{- 'general.a11y.skip_main' | t -}}
+    </a>
+
+    <div
+      class="layout--viewport"
+      data-drawer-status="closed"
+      data-drop-shadows="{{ settings.drop-shadows-enabled }}"
+      data-cart-empty="{% if cart.item_count > 0 %}false{% else %}true{% endif %}"
+      data-transition-container="viewport"
+      {% if settings.border--enabled %}
+        data-show-border
+      {% endif %}
+    >
+      <div class="layout--main-content">
+        {%- sections 'header-group' -%}
+        {%- sections 'overlay-group' -%}
+
+        <main class="layout--template" id="main_content">
+          {{ content_for_layout }}
+        </main>
+
+        {%- sections 'footer-group' -%}
+      </div>
+
+      {%- liquid
+        render 'drawer'
+        render 'layout--navigation'
+        render 'feedback-bar'
+      -%}
+    </div>
+
+    {%- render 'icons', icon: 'defs' -%}
+
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-539B6D6L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+{% if request.path == '/' %}
+{% comment %}
+<!-- IMAGE POPUP START -->
+<style>
+  #popupOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px; 
+}
+
+#popupContent {
+    position: relative;
+    max-width: 500px;
+    max-height: 90vh;  
+    width: 90%;
+}
+
+#popupContent img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* ⭐ Perfect scaling */
+    display: block;
+    border-radius: 8px;
+}
+
+  #popupClose {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+  }
+</style>
+
+<div id="popupOverlay">
+  <div id="popupContent">
+    <div id="popupClose">×</div>
+    <img
+      src="https://cdn.shopify.com/s/files/1/0745/4248/1629/files/christmas_2.jpg?v=1766144547"
+      alt="Popup Image">
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var overlay = document.getElementById("popupOverlay");
+    var closeBtn = document.getElementById("popupClose");
+
+    if (overlay) {
+      setTimeout(function() {
+        overlay.style.display = "flex"; // CENTERED ✔
+      }, 1500);
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", function() {
+        overlay.style.display = "none";
+      });
+    }
+
+    if (overlay) {
+      overlay.addEventListener("click", function(e) {
+        if (e.target === overlay) {
+          overlay.style.display = "none";
+        }
+      });
+    }
+  });
+</script>
+<!-- IMAGE POPUP END -->
+{% endcomment %}
+{% endif %}
+
+  </body>
+</html>

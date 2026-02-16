@@ -1,0 +1,1220 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_F4YPYW": {
+      "type": "custom-liquid",
+      "custom_css": [],
+      "name": "Custom Liquid",
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "none",
+        "background-color": "none",
+        "white-text": false,
+        "text-alignment": "center",
+        "container-width": "6",
+        "custom-liquid": "",
+        "mobile-full-width": true,
+        "mobile-spacing-above": "none",
+        "mobile-spacing-below": "none"
+      }
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "video_XFkKdW": {
+          "type": "video",
+          "disabled": true,
+          "settings": {
+            "text-width": "medium",
+            "text-horizontal-alignment": "left",
+            "text-vertical-alignment": "bottom",
+            "autoplay": true,
+            "play-button-style": "solid",
+            "video-upload": "shopify://files/videos/K18 Banner 2.mp4",
+            "video-url": "",
+            "overline": "K18 Hair Mask + HeatBounce",
+            "heading": "Repair + Protect in One Routine",
+            "highlight-type": "italic",
+            "highlight-color": "#ffdd66",
+            "highlight-text": "#000000",
+            "description": "<p><em><strong>Heal past damage while shielding from future heat.<br/><br/></strong></em></p>",
+            "button-text": "Shop Now",
+            "button-url": "shopify://collections/k18",
+            "mobile-image-display-type": "original",
+            "mobile-text-alignment": "center",
+            "mobile-hide-description": false
+          }
+        },
+        "image_A47KVH": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "text-width": "medium",
+            "text-horizontal-alignment": "center",
+            "text-vertical-alignment": "center",
+            "image": "shopify://shop_images/image_13.jpg",
+            "overline": "",
+            "title": "",
+            "highlight-type": "italic",
+            "highlight-color": "#ffdd66",
+            "highlight-text": "#000000",
+            "description": "",
+            "link-url": "/",
+            "link-text": "View more",
+            "mobile-text-alignment": "center",
+            "mobile-hide-description": false
+          }
+        },
+        "image_TtYbnj": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "text-width": "medium",
+            "text-horizontal-alignment": "center",
+            "text-vertical-alignment": "center",
+            "image": "shopify://shop_images/image_14.jpg",
+            "overline": "",
+            "title": "",
+            "highlight-type": "italic",
+            "highlight-color": "#ffdd66",
+            "highlight-text": "#000000",
+            "description": "",
+            "link-url": "/",
+            "link-text": "View more",
+            "mobile-text-alignment": "center",
+            "mobile-hide-description": false
+          }
+        },
+        "video_NeeiN3": {
+          "type": "video",
+          "disabled": true,
+          "settings": {
+            "text-width": "medium",
+            "text-horizontal-alignment": "left",
+            "text-vertical-alignment": "bottom",
+            "autoplay": true,
+            "play-button-style": "solid",
+            "video-upload": "shopify://files/videos/K18 Banner 1.mp4",
+            "video-url": "",
+            "overline": "K18 HeatBounce",
+            "heading": "Shield Your Hair from Heat Damage",
+            "highlight-type": "italic",
+            "highlight-color": "#ffdd66",
+            "highlight-text": "#000000",
+            "description": "<p><em><strong>Defends against up to 450°F, keeping hair healthy and smooth.<br/><br/></strong></em></p>",
+            "button-text": "Shop Now",
+            "button-url": "shopify://collections/k18",
+            "mobile-image-display-type": "original",
+            "mobile-text-alignment": "center",
+            "mobile-hide-description": false
+          }
+        },
+        "video_8A9q9r": {
+          "type": "video",
+          "settings": {
+            "text-width": "medium",
+            "text-horizontal-alignment": "left",
+            "text-vertical-alignment": "bottom",
+            "autoplay": true,
+            "play-button-style": "solid",
+            "video-upload": "shopify://files/videos/FY25_BODY-MASS_CGI_15sec_16x9.mp4",
+            "video-url": "",
+            "overline": "Kevin Murphy",
+            "heading": "Style with Substance",
+            "highlight-type": "italic",
+            "highlight-color": "#ffdd66",
+            "highlight-text": "#000000",
+            "description": "<p><em>Experience weightless performance, skincare for your hair — the Kevin Murphy difference.</em></p>",
+            "button-text": "Shop Now",
+            "button-url": "shopify://collections/kevin-murphy",
+            "mobile-thumbnail": "shopify://shop_images/kevin.webp",
+            "mobile-image-display-type": "original",
+            "mobile-text-alignment": "center",
+            "mobile-hide-description": false
+          }
+        }
+      },
+      "block_order": [
+        "video_XFkKdW",
+        "image_A47KVH",
+        "image_TtYbnj",
+        "video_NeeiN3",
+        "video_8A9q9r"
+      ],
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "none",
+        "spacing-around-blocks": false,
+        "arrows-enabled": false,
+        "blocks-per-slide": 1,
+        "background-color": "none",
+        "white-text": true,
+        "text-style": "eclipse-shadow",
+        "text-background-color": "transparent",
+        "heading-type": "featured-heading",
+        "image-display-type": "fit-screen",
+        "aspect-ratio": 56,
+        "overlay-style": "darken-top",
+        "auto-rotate": true,
+        "rotate-frequency": 5,
+        "transition-type": "slide",
+        "mobile-spacing-above": "none",
+        "mobile-spacing-below": "none",
+        "mobile-image-display-type": "x-large",
+        "mobile-aspect-ratio": 134,
+        "blocks-per-slide-mobile": "1",
+        "mobile-overlay": true
+      }
+    },
+    "custom_liquid_3dPbqL": {
+      "type": "custom-liquid",
+      "name": "Custom Liquid",
+      "settings": {
+        "border": "none",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "background-color": "none",
+        "white-text": false,
+        "text-alignment": "center",
+        "container-width": "4",
+        "custom-liquid": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n  <title>Shop by Brands</title>\n\n  <!-- GOOGLE FONT -->\n  <link href=\"https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap\" rel=\"stylesheet\">\n\n  <style>\n    body {\n      background: #f4f4f4;\n      font-family: 'Poppins', sans-serif;\n      margin: 0;\n      padding: 0;\n    }\n\n    h2 {\n      text-align: center;\n      color: #20338F;\n      margin: 30px 0;\n      font-weight: 600;\n    }\n\n    /* CAROUSEL CONTAINER */\n    .carousel-container {\n      overflow: hidden;\n      background-color: #fff;\n      padding: 20px 0;\n      position: relative;\n      width: 100%;\n    }\n\n    /* TRACK */\n    .carousel-track {\n      display: flex;\n      width: max-content;\n      animation: scroll 30s linear infinite;\n    }\n\n    /* LOGO WRAPPER */\n  \n\n    .logo_img img {\n      max-width: 100%;\n      max-height: 100%;\n      object-fit: contain;\n    }\n\n    /* ANIMATION */\n    @keyframes scroll {\n      0% {\n        transform: translateX(0);\n      }\n      100% {\n        transform: translateX(-50%);\n      }\n    }\n\n    /* PAUSE ON HOVER */\n    .carousel-track:hover {\n      animation-play-state: paused;\n    }\n\n    /* MOBILE */\n    @media (max-width: 768px) {\n      .logo_img {\n        width: 100px;\n        height: 80px;\n        margin-right: 20px;\n      }\n    }\n  </style>\n</head>\n\n<body>\n\n  <h2>SHOP BY BRANDS</h2>\n\n  <div class=\"carousel-container\">\n    <div class=\"carousel-track\">\n\n      <!-- FIRST SET -->\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/cb43aa10-9311-4efc-99cc-9c21149a0fb6/its-a10_Logo.webp\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/6e0964e1-c8a4-40f9-a128-afa1f994d9d7/parlux-logo.png\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/af91d63b-60fa-4bae-b359-3e4c7895516d/GHD-Black_Logo.jpg\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/ab647308-9eec-4735-9c6b-b753906d964c/K18_Logo.png\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/80fd5e55-e897-4646-ab99-4d248b1feb79/Logo-_5_x140.avif\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/c49ea956-5186-42ed-a427-f2316cf9b0b0/uppercut.png\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/ba28f47b-19d2-4159-ab34-10ea7d0892c1/maria_nila_stockholm_logo_black.webp\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/9bd8908f-1545-4056-ad00-673d02d17939/nashi.jpg\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/956c6753-6b2d-4601-bcd1-cb53f1abc242/bbaylisspro.webp\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/175afe6d-7f24-4b37-b9da-d78d028544cf/Macadamia_logo.png\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/646b39ce-b24d-4982-80e2-1e1a87e066fd/Murdock-London_Logo.png\" alt=\"\"></div>\n\n      <!-- DUPLICATE SET (FOR LOOP) -->\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/cb43aa10-9311-4efc-99cc-9c21149a0fb6/its-a10_Logo.webp\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/6e0964e1-c8a4-40f9-a128-afa1f994d9d7/parlux-logo.png\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/af91d63b-60fa-4bae-b359-3e4c7895516d/GHD-Black_Logo.jpg\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/ab647308-9eec-4735-9c6b-b753906d964c/K18_Logo.png\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/80fd5e55-e897-4646-ab99-4d248b1feb79/Logo-_5_x140.avif\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/c49ea956-5186-42ed-a427-f2316cf9b0b0/uppercut.png\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/ba28f47b-19d2-4159-ab34-10ea7d0892c1/maria_nila_stockholm_logo_black.webp\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/9bd8908f-1545-4056-ad00-673d02d17939/nashi.jpg\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/956c6753-6b2d-4601-bcd1-cb53f1abc242/bbaylisspro.webp\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/175afe6d-7f24-4b37-b9da-d78d028544cf/Macadamia_logo.png\" alt=\"\"></div>\n      <div class=\"logo_img\"><img src=\"https://files.elfsightcdn.com/eafe4a4d-3436-495d-b748-5bdce62d911d/646b39ce-b24d-4982-80e2-1e1a87e066fd/Murdock-London_Logo.png\" alt=\"\"></div>\n\n    </div>\n  </div>\n\n</body>\n</html>",
+        "mobile-full-width": false,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    },
+    "grid-with-overlay": {
+      "type": "grid-with-overlay",
+      "blocks": {
+        "overlay-block-1": {
+          "type": "video",
+          "settings": {
+            "x-blocks": "1",
+            "y-blocks": "1",
+            "text-width": "medium",
+            "text-horizontal-alignment": "center",
+            "text-vertical-alignment": "center",
+            "play-button-style": "solid",
+            "autoplay": true,
+            "video-upload": "shopify://files/videos/ssstik.io_1749561216369.mp4",
+            "video-url": "",
+            "title": "KEVIN MURPHY COLLECTIONS",
+            "link-url": "shopify://collections/kevin-murphy",
+            "link-text": "SHOP NOW",
+            "mobile-text-alignment": "center"
+          }
+        },
+        "image-1": {
+          "type": "image",
+          "settings": {
+            "x-blocks": "1",
+            "y-blocks": "1",
+            "text-width": "medium",
+            "text-horizontal-alignment": "center",
+            "text-vertical-alignment": "center",
+            "image": "shopify://shop_images/MURDOCK_BANNER_3.webp",
+            "title": "MURDOCK COLLECTION",
+            "link-url": "shopify://collections/murdock",
+            "link-text": "SHOP NOW!",
+            "mobile-text-alignment": "center"
+          }
+        }
+      },
+      "block_order": [
+        "overlay-block-1",
+        "image-1"
+      ],
+      "settings": {
+        "border": "both",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "background-color": "none",
+        "heading-white-text": false,
+        "section-alignment": "center",
+        "container-width": "3",
+        "spacing": true,
+        "width": 2,
+        "row-height": 290,
+        "white-text": true,
+        "text-style": "none",
+        "heading-type": "block-heading",
+        "overlay-style": "darken",
+        "overline": "",
+        "heading": "",
+        "description": "",
+        "link-url": "",
+        "link-text": "",
+        "mobile-full-width": false,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half",
+        "mobile-width": "2",
+        "mobile-spacing": true,
+        "mobile-image-display-type": "aspect-ratio",
+        "mobile-aspect-ratio": 134
+      }
+    },
+    "dual_banner_section_6YDz8X": {
+      "type": "Dual-Banner-Section",
+      "blocks": {
+        "banner_PDTk7A": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Davines_banner_2.jpg",
+            "headline": "",
+            "subheading": "",
+            "button_text": "",
+            "button_link": "shopify://collections/davines",
+            "text_align": "center",
+            "text_size": "medium",
+            "use_custom_button": false,
+            "button_bg": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "banner_TjpzUc": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Nashi_Argan_Bloom_Collection_Banner_7c447db5-ac66-4685-9a35-cd25ca927b7a.jpg",
+            "headline": "",
+            "subheading": "",
+            "button_text": "",
+            "button_link": "https://enhanceglow.com/collections/nashi-argan",
+            "text_align": "center",
+            "text_size": "medium",
+            "use_custom_button": false,
+            "button_bg": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "banner_PDTk7A",
+        "banner_TjpzUc"
+      ],
+      "name": "Dual Banners",
+      "settings": {}
+    },
+    "177002877384b3f3e6": {
+      "type": "_blocks",
+      "settings": {}
+    },
+    "text_columns_DTAMmg": {
+      "type": "text-columns",
+      "blocks": {
+        "image_hpx73N": {
+          "type": "image",
+          "settings": {
+            "show-image": true,
+            "image": "shopify://shop_images/5189TBMi_GL._SY780.jpg",
+            "title": "K18",
+            "description": "<p>Treat your hair with <a href=\"/collections/k18\" title=\"K18\">K18 </a>with 5% Off<br/><br/></p>",
+            "link-url": "shopify://collections/k18",
+            "link-text": "",
+            "shop-now-text": "SHOP NOW"
+          }
+        },
+        "image_MFMQFf": {
+          "type": "image",
+          "settings": {
+            "show-image": true,
+            "image": "shopify://shop_images/nashi_1b6dc2a6-e555-4e4e-b36e-aede769bc058.jpg",
+            "title": "NASHI ARGAN",
+            "description": "<p>Discover the <a href=\"/collections/nashi-argan\" title=\"Nashi Argan\">NASHI ARGAN</a> From hair care products to fragrances and body treatments</p>",
+            "link-url": "shopify://collections/milk-shake",
+            "link-text": "",
+            "shop-now-text": "SHOP NOW"
+          }
+        },
+        "image_AUPmW3": {
+          "type": "image",
+          "settings": {
+            "show-image": true,
+            "image": "shopify://shop_images/olaplex.webp",
+            "title": "OLAPLEX",
+            "description": "<p>Unleash the Beauty of your hair with <a href=\"/collections/ola-plex\" title=\"OLAPLEX\">OLAPLEX</a> Professional-Grade products</p>",
+            "link-url": "shopify://collections/ola-plex",
+            "link-text": "",
+            "shop-now-text": "SHOP NOW"
+          }
+        },
+        "image_XV3xLy": {
+          "type": "image",
+          "settings": {
+            "show-image": true,
+            "image": "shopify://shop_images/Uppercut-Deluxe.webp",
+            "title": "uppercut",
+            "description": "<p>Uppercut Deluxe, a luxury men’s grooming brand. Explore <a href=\"/collections/uppercut\" title=\"Uppercut Deluxe\">UPPERCUT DELUXE </a>products now!<br/><br/></p>",
+            "link-url": "shopify://collections/uppercut",
+            "link-text": "",
+            "shop-now-text": "SHOP NOW"
+          }
+        },
+        "image_8TwiYb": {
+          "type": "image",
+          "settings": {
+            "show-image": true,
+            "image": "shopify://shop_images/the-grey.jpg",
+            "title": "The Grey",
+            "description": "<p><a href=\"/collections/the-grey\" title=\"The Grey\">The Grey  </a>Skincare offers high-performance, minimalist grooming essentials tailored for modern skin needs<br/><br/></p>",
+            "link-url": "shopify://collections/the-grey",
+            "link-text": "",
+            "shop-now-text": "SHOP NOW"
+          }
+        },
+        "image_fbe4TJ": {
+          "type": "image",
+          "settings": {
+            "show-image": true,
+            "image": "shopify://shop_images/110019.1_6e4e4590-9da5-4536-b24a-a0735ad19264.jpg",
+            "title": "Thalgo",
+            "description": "<p><a href=\"/collections/thalgo-1\" title=\"Thalgo\">Thalgo</a> delivers ocean-powered skincare for radiant, revitalized skin. Shop now!<br/><br/><br/></p>",
+            "link-url": "shopify://collections/thalgo-1",
+            "link-text": "",
+            "shop-now-text": "SHOP NOW"
+          }
+        }
+      },
+      "block_order": [
+        "image_hpx73N",
+        "image_MFMQFf",
+        "image_AUPmW3",
+        "image_XV3xLy",
+        "image_8TwiYb",
+        "image_fbe4TJ"
+      ],
+      "name": "Text columns with images",
+      "settings": {
+        "border": "both",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "block-spacing": true,
+        "background-color": "none",
+        "white-text": false,
+        "section-alignment": "center",
+        "text-alignment": "center",
+        "container-width": "3",
+        "width": 6,
+        "aspect-ratio": "landscape",
+        "image-width": 0,
+        "overline": "",
+        "heading": "TOP TRENDING BRANDS",
+        "description": "<p>Check out our List of Brands that are Selling Out FAST! and almost out as soon as they come.</p>",
+        "link-url": "",
+        "link-text": "",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "none",
+        "mobile-heading-alignment": "center",
+        "mobile-width": "2",
+        "mobile-media-layout": "grid"
+      }
+    },
+    "dual_banner_section_Gd9YdA": {
+      "type": "Dual-Banner-Section",
+      "blocks": {
+        "banner_pKFAN3": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/dermologica.jpg",
+            "headline": "",
+            "subheading": "",
+            "button_text": "",
+            "button_link": "shopify://collections/dermalogica",
+            "text_align": "left",
+            "text_size": "small",
+            "use_custom_button": false,
+            "button_bg": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "banner_riPzj4": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/thalgo_banner.jpg",
+            "headline": "",
+            "subheading": "",
+            "button_text": "",
+            "button_link": "shopify://collections/thalgo-1",
+            "text_align": "center",
+            "text_size": "medium",
+            "use_custom_button": false,
+            "button_bg": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "banner_pKFAN3",
+        "banner_riPzj4"
+      ],
+      "name": "Dual Banners",
+      "settings": {}
+    },
+    "featured_products_qTJpe7": {
+      "type": "featured-products",
+      "name": "Featured products",
+      "settings": {
+        "border": "both",
+        "spacing-above": "full",
+        "spacing-below": "half",
+        "background-color": "none",
+        "white-text": false,
+        "display-type": "slideshow",
+        "products-per-row--desktop": "4",
+        "section-alignment": "center",
+        "product-list": [
+          "dermalogica-circular-hydration-serum-30ml",
+          "kevin-murphy-angel-rinse-250ml",
+          "k18-leave-in-repair-mask-15ml",
+          "murdock-black-tea-cologne-50ml",
+          "nashi-argan-deep-infusion-mask-250ml",
+          "maria-nila-cream-heat-spray-150ml",
+          "maria-nila-cleansing-powder-120g",
+          "ghd-duet-style-in-black-straightener",
+          "the-grey-3-in-1-face-cream-50-ml"
+        ],
+        "heading": "BEST SELLERS",
+        "link-url": "",
+        "link-text": "",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half",
+        "mobile-heading-alignment": "left",
+        "products-per-row--mobile": "2"
+      }
+    },
+    "dual_banner_section_ijdacg": {
+      "type": "Dual-Banner-Section",
+      "blocks": {
+        "banner_LrBqNk": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/1.png",
+            "headline": "",
+            "subheading": "",
+            "button_text": "",
+            "button_link": "shopify://collections/skin-story",
+            "text_align": "center",
+            "text_size": "medium",
+            "use_custom_button": false,
+            "button_bg": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "banner_rttVbM": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/Wahl_-_small_banner_1.png",
+            "headline": "",
+            "subheading": "",
+            "button_text": "",
+            "button_link": "https://enhanceglow.com/collections/wahl",
+            "text_align": "center",
+            "text_size": "medium",
+            "use_custom_button": false,
+            "button_bg": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "banner_LrBqNk",
+        "banner_rttVbM"
+      ],
+      "name": "Dual Banners",
+      "settings": {}
+    },
+    "featured_products_g6EcLV": {
+      "type": "featured-products",
+      "name": "Featured products",
+      "settings": {
+        "border": "both",
+        "spacing-above": "full",
+        "spacing-below": "half",
+        "background-color": "none",
+        "white-text": false,
+        "display-type": "slideshow",
+        "products-per-row--desktop": "4",
+        "section-alignment": "center",
+        "product-list": [
+          "ghd-duet-style-in-black-straightener",
+          "ghd-max-hair-straightener",
+          "quattro-professional-hair-dryer-black-xp-6900-3maua670520091",
+          "olivia-garden-curved-and-vented-paddle-brush-711-fb-lg",
+          "babyliss-pro-black-elipsis-3000-straightening-iron",
+          "babyliss-pro-triple-barrel-large-hair-waver",
+          "cloud-nine-the-touch-iron-black",
+          "cloud-nine-the-air-shot-pro-hair-dryer-black",
+          "denman-d90l-tangle-tamer-ultra-pink-brush",
+          "elchim-2001-mod-hair-dryer-black-and-red",
+          "parlux-2200-parlux-advance-black-hair-dryer",
+          "olivia-garden-nano-thermic-ceramic-ion-styler-nt-pdl-styling-brush"
+        ],
+        "heading": "BEST HAIR STYILING TOOLS",
+        "link-url": "",
+        "link-text": "",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half",
+        "mobile-heading-alignment": "left",
+        "products-per-row--mobile": "2"
+      }
+    },
+    "dual_banner_section_9BTB6U": {
+      "type": "Dual-Banner-Section",
+      "blocks": {
+        "banner_9Ltpq7": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/2_16_1.png",
+            "headline": "",
+            "subheading": "",
+            "button_text": "",
+            "button_link": "https://enhanceglow.com/search?q=evo+fabuloso&_pos=2&_psq=EVO&_ss=e&_v=1.0",
+            "text_align": "center",
+            "text_size": "medium",
+            "use_custom_button": false,
+            "button_bg": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "banner_iXHK7Q": {
+          "type": "banner",
+          "settings": {
+            "image": "shopify://shop_images/THE_GREY_1_1.jpg",
+            "headline": "",
+            "subheading": "",
+            "button_text": "",
+            "button_link": "shopify://collections/the-grey",
+            "text_align": "center",
+            "text_size": "medium",
+            "use_custom_button": false,
+            "button_bg": "#000000",
+            "button_text_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "banner_9Ltpq7",
+        "banner_iXHK7Q"
+      ],
+      "name": "Dual Banners",
+      "settings": {}
+    },
+    "collection-with-highlight": {
+      "type": "collection-with-highlight",
+      "settings": {
+        "border": "none",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "background-color": "light",
+        "product-white-text": false,
+        "max-products": 6,
+        "products-per-row--desktop": "2",
+        "reverse-layout": true,
+        "white-text": true,
+        "heading-type": "section-heading",
+        "text-horizontal-alignment": "center",
+        "text-vertical-alignment": "center",
+        "text-width": "medium",
+        "text-style": "none",
+        "image-disabled": false,
+        "image-display-type": "medium",
+        "aspect-ratio": 80,
+        "overlay-style": "darken-top",
+        "collection": "k-beauty",
+        "product-list": [
+          "axis-y-artichoke-intensive-skin-barrier-ampoule-30ml",
+          "anua-heartleaf-77-soothing-toner-250ml",
+          "axis-y-cera-heart-my-type-duo-cream-60ml",
+          "anua-heartleaf-lha-moisture-peeling-gel-120ml",
+          "anua-peach-77-niacin-essence-toner-250ml",
+          "axis-y-quinoa-one-step-balanced-gel-cleanser-180ml"
+        ],
+        "image": "shopify://shop_images/kbl1.jpg",
+        "overline": "K-BEAUTY SKINCARE AT YOUR FINGERTIPS",
+        "heading": "",
+        "highlight-type": "italic",
+        "highlight-color": "#ff5847",
+        "highlight-text": "#000000",
+        "description": "<p>Discover innovative formulas designed to transform your complexion, revealing radiant, healthy, and glass-like skin.</p>",
+        "link-url": "shopify://collections/k-beauty",
+        "link-text": "DISCOVER ALL",
+        "mobile-spacing-above": "none",
+        "mobile-spacing-below": "none",
+        "mobile-media-layout": "slideshow",
+        "products-per-row--mobile": "2",
+        "mobile-image-display-type": "original",
+        "mobile-aspect-ratio": 134,
+        "mobile-hide-description": false,
+        "mobile-text-alignment": "center"
+      }
+    },
+    "shop-the-look": {
+      "type": "shop-the-look",
+      "blocks": {
+        "hotspot-1": {
+          "type": "hotspot",
+          "settings": {
+            "product": "k18-leave-in-repair-mask-15ml",
+            "horizontal": 37,
+            "vertical": 33,
+            "mobile-horizontal": 13,
+            "mobile-vertical": 35
+          }
+        },
+        "hotspot-2": {
+          "type": "hotspot",
+          "settings": {
+            "product": "beauty-of-joseon-glow-serum-propolis-niacinamide-30ml",
+            "horizontal": 44,
+            "vertical": 62,
+            "mobile-horizontal": 35,
+            "mobile-vertical": 61
+          }
+        },
+        "hotspot_pT8KWX": {
+          "type": "hotspot",
+          "settings": {
+            "product": "dermalogica-prisma-protect-spf30-50ml",
+            "horizontal": 37,
+            "vertical": 50,
+            "mobile-horizontal": 39,
+            "mobile-vertical": 50
+          }
+        },
+        "hotspot_VwgwXN": {
+          "type": "hotspot",
+          "settings": {
+            "product": "living-proof-curl-definer-190ml",
+            "horizontal": 49,
+            "vertical": 23,
+            "mobile-horizontal": 50,
+            "mobile-vertical": 25
+          }
+        },
+        "hotspot_Kxe9EG": {
+          "type": "hotspot",
+          "settings": {
+            "product": "ardell-wisps-magnetic-eyelash",
+            "horizontal": 44,
+            "vertical": 44,
+            "mobile-horizontal": 47,
+            "mobile-vertical": 44
+          }
+        }
+      },
+      "block_order": [
+        "hotspot-1",
+        "hotspot-2",
+        "hotspot_pT8KWX",
+        "hotspot_VwgwXN",
+        "hotspot_Kxe9EG"
+      ],
+      "disabled": true,
+      "settings": {
+        "border": "none",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "background-color": "none",
+        "white-text": false,
+        "container-width": "4",
+        "hotspot-color": "white",
+        "heading": "SHOP YOUR SKINCARE",
+        "heading-alignment": "center",
+        "image": "shopify://shop_images/ewdew.webp",
+        "button-text": "ADD TO CART",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    },
+    "image-comparison": {
+      "type": "image-comparison",
+      "blocks": {
+        "before-1": {
+          "type": "before",
+          "settings": {
+            "image": "shopify://shop_images/20250610_1647_Hair_Transformation_Sequence_simple_compose_01jxcy0gwyf42bee89pkr0ef4j.png",
+            "mobile-image": "shopify://shop_images/20250610_1647_Hair_Transformation_Sequence_simple_compose_01jxcy0gwyf42bee89pkr0ef4j.png",
+            "overlay-style": "none",
+            "overline": "Rough and Damaged Hair",
+            "title": "Before",
+            "heading-type": "section-heading",
+            "text-position": "start",
+            "white-text": true
+          }
+        },
+        "after-1": {
+          "type": "after",
+          "settings": {
+            "image": "shopify://shop_images/After_img-_k18_pc.jpg",
+            "mobile-image": "shopify://shop_images/After_img-_k18_pc.jpg",
+            "overlay-style": "darken-bottom",
+            "overline": "Glossy and Healthy Hair",
+            "title": "After",
+            "heading-type": "section-heading",
+            "text-position": "end",
+            "white-text": true
+          }
+        }
+      },
+      "block_order": [
+        "before-1",
+        "after-1"
+      ],
+      "settings": {
+        "border": "both",
+        "spacing-above": "half",
+        "spacing-below": "half",
+        "image-display-type": "medium",
+        "aspect-ratio": 56,
+        "background-color": "none",
+        "white-text": false,
+        "section-alignment": "center",
+        "container-width": "4",
+        "overline": "Real results with our expert-approved haircare – from dry & damaged to silky & smooth.Shop our exclusive high-end salon care products for a visible transformation.",
+        "heading": "BEFORE AND AFTER",
+        "link-url": "",
+        "link-text": "SHOP NOW",
+        "cursor-direction": "horizontal",
+        "cursor-position": 50,
+        "mobile-full-width": false,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half",
+        "mobile-image-display-type": "original",
+        "mobile-aspect-ratio": 134
+      }
+    },
+    "featured-product": {
+      "type": "featured-product",
+      "blocks": {
+        "overline-1": {
+          "type": "overline",
+          "settings": {
+            "overline": "Overline text"
+          }
+        },
+        "heading-1": {
+          "type": "heading",
+          "settings": {}
+        },
+        "vendor-1": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "price-1": {
+          "type": "price",
+          "settings": {}
+        },
+        "options-1": {
+          "type": "options",
+          "settings": {
+            "variant-style": "buttons",
+            "swatches": "circle",
+            "size-chart-enabled": true,
+            "size-chart-option": "size",
+            "size-chart-content": ""
+          }
+        },
+        "buy-buttons-1": {
+          "type": "buy-buttons",
+          "settings": {
+            "smart-payment-enabled": true
+          }
+        }
+      },
+      "block_order": [
+        "overline-1",
+        "heading-1",
+        "vendor-1",
+        "price-1",
+        "options-1",
+        "buy-buttons-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "border": "none",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "white-text": false,
+        "background-color": "none",
+        "container-width": "4",
+        "media-layout": "thumbnails",
+        "text-column-width": 375,
+        "thumbnail-width": 80,
+        "media-gap": 8,
+        "text-alignment": "left",
+        "featured_product": "",
+        "modal-enabled": false,
+        "loop-enabled": false,
+        "image-zoom-enabled": true,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half",
+        "mobile-media-layout": "slideshow"
+      }
+    },
+    "shop-the-banner": {
+      "type": "shop-the-banner",
+      "blocks": {
+        "hotspot-1": {
+          "type": "hotspot",
+          "settings": {
+            "product": "",
+            "horizontal": 35,
+            "vertical": 33,
+            "mobile-horizontal": 35,
+            "mobile-vertical": 35
+          }
+        },
+        "hotspot-2": {
+          "type": "hotspot",
+          "settings": {
+            "product": "",
+            "horizontal": 44,
+            "vertical": 62,
+            "mobile-horizontal": 45,
+            "mobile-vertical": 66
+          }
+        },
+        "hotspot-3": {
+          "type": "hotspot",
+          "settings": {
+            "product": "",
+            "horizontal": 65,
+            "vertical": 50,
+            "mobile-horizontal": 65,
+            "mobile-vertical": 47
+          }
+        }
+      },
+      "block_order": [
+        "hotspot-1",
+        "hotspot-2",
+        "hotspot-3"
+      ],
+      "disabled": true,
+      "settings": {
+        "border": "none",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "background-color": "light",
+        "container-width": "4",
+        "hotspot-color": "white",
+        "heading": "Shop the banner",
+        "heading-alignment": "center",
+        "mobile-full-width": true,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "link": "",
+            "icon": "10",
+            "author-role": "",
+            "author-name": "Amelia R",
+            "description": "<p>\"Absolutely <strong>obsessed with the quality</strong> of everything I've purchased from this store! My skin has never looked better. Highly recommend for anyone looking to invest in premium beauty\"<br/><br/></p>"
+          }
+        },
+        "testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "link": "",
+            "icon": "9",
+            "author-role": "",
+            "author-name": "Julia N",
+            "description": "<p>\"The K-Beauty selection here is really awesome!. I bought the Anua Cleanser and I was scared at first but thank god it was authentic.\"</p>"
+          }
+        },
+        "testimonial-3": {
+          "type": "testimonial",
+          "settings": {
+            "link": "",
+            "icon": "10",
+            "author-role": "",
+            "author-name": "Noora T",
+            "description": "<p>\"I recently bought the Olaplex and the K18 Leave-In mask, and my hair has <strong>never looked better</strong>. The difference is truly astounding – less frizz, more shine, and just healthier overall. Best Part is all Products are genuine and not fake like others.<br/><br/></p>"
+          }
+        },
+        "testimonial-4": {
+          "type": "testimonial",
+          "settings": {
+            "link": "",
+            "icon": "8",
+            "author-role": "",
+            "author-name": "Fathima S",
+            "description": "<p>1 week back I bought the Kevin Murphy hair restore treatment and I was really scared to receive a fake but thankfully i got the best and authentic one. Will keep shopping more.</p>"
+          }
+        },
+        "testimonial_ygTHqt": {
+          "type": "testimonial",
+          "settings": {
+            "link": "",
+            "icon": "9",
+            "author-role": "",
+            "author-name": "Sara M",
+            "description": "<p>They have all the luxury high end brands and it is very nice. Delivery is also fast and precise.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial-1",
+        "testimonial-2",
+        "testimonial-3",
+        "testimonial-4",
+        "testimonial_ygTHqt"
+      ],
+      "settings": {
+        "border": "none",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "background-color": "none",
+        "outer-background": true,
+        "text-background-color": "transparent",
+        "white-text": false,
+        "section-alignment": "center",
+        "text-alignment": "center",
+        "container-width": "4",
+        "width": 5,
+        "image-shape": "circle",
+        "overline": "",
+        "heading": "REVIEWS",
+        "link-url": "",
+        "link-text": "",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half",
+        "mobile-heading-alignment": "left",
+        "mobile-width": "2",
+        "mobile-media-layout": "slideshow"
+      }
+    },
+    "featured-video": {
+      "type": "featured-video",
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "half",
+        "background-color": "none",
+        "container-width": "6",
+        "white-text": true,
+        "text-width": "small",
+        "text-horizontal-alignment": "center",
+        "text-vertical-alignment": "bottom",
+        "text-style": "none",
+        "text-background-color": "transparent",
+        "heading-type": "featured-heading",
+        "autoplay": true,
+        "video-display-type": "aspect-ratio",
+        "aspect-ratio": 56,
+        "play-button-style": "solid",
+        "overlay-style": "darken-bottom",
+        "video-upload": "shopify://files/videos/ghd-2.mp4",
+        "video-url": "",
+        "overline": "",
+        "heading": "",
+        "highlight-type": "italic",
+        "highlight-color": "#ffdd66",
+        "highlight-text": "#000000",
+        "description": "<p><strong>Transform Your Hair and Glow with GHD</strong></p>",
+        "button-text": "SHOP NOW!",
+        "button-url": "shopify://collections/ghd",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half",
+        "mobile-full-width": true,
+        "mobile-video-display-type": "aspect-ratio",
+        "mobile-aspect-ratio": 98,
+        "mobile-text-alignment": "bottom",
+        "mobile-hide-description": false
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "disabled": true,
+      "settings": {
+        "border": "none",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "background-color": "light",
+        "outer-background": false,
+        "container-width": "4",
+        "reverse-layout": false,
+        "white-text": false,
+        "heading-type": "section-heading",
+        "text-alignment": "left",
+        "image-disabled": false,
+        "image-display-type": "x-small",
+        "aspect-ratio": 56,
+        "parallax-enabled": false,
+        "overline": "Stay in touch",
+        "heading": "Subscribe to our newsletter",
+        "highlight-type": "italic",
+        "highlight-color": "#ffdd66",
+        "highlight-text": "#000000",
+        "description": "<p>Get the latest updates and exclusive offers straight to your inbox.</p>",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half",
+        "mobile-image-display-type": "original",
+        "mobile-aspect-ratio": 134,
+        "mobile-text-alignment": "left"
+      }
+    },
+    "scrolling-text-on-image": {
+      "type": "scrolling-text-on-image",
+      "blocks": {
+        "text-1": {
+          "type": "text",
+          "settings": {
+            "text": "EXCLUSIVE OFFERS!",
+            "highlight-type": "underline",
+            "highlight-color": "#ff5e5e",
+            "highlight-text": "#ff5e5e",
+            "link": "",
+            "hide-on-mobile": false,
+            "hide-on-desktop": false
+          }
+        },
+        "text-2": {
+          "type": "text",
+          "settings": {
+            "text": "PROFESSIONAL TOOLS!",
+            "highlight-type": "none",
+            "highlight-color": "#ff5e5e",
+            "highlight-text": "#ff5e5e",
+            "link": "",
+            "hide-on-mobile": false,
+            "hide-on-desktop": false
+          }
+        },
+        "text-3": {
+          "type": "text",
+          "settings": {
+            "text": "BEST OF THE BEST !",
+            "highlight-type": "none",
+            "highlight-color": "#ff5e5e",
+            "highlight-text": "#ff5e5e",
+            "link": "",
+            "hide-on-mobile": false,
+            "hide-on-desktop": false
+          }
+        }
+      },
+      "block_order": [
+        "text-1",
+        "text-2",
+        "text-3"
+      ],
+      "settings": {
+        "border": "both",
+        "spacing-above": "none",
+        "spacing-below": "none",
+        "background-color": "none",
+        "container-width": "6",
+        "heading-type": "featured-heading",
+        "full-width-text": true,
+        "white-text": true,
+        "image-display-type": "medium",
+        "aspect-ratio": 56,
+        "overlay-style": "darken-bottom",
+        "parallax-enabled": false,
+        "animation-direction": "left",
+        "gap": 32,
+        "animation-speed": 2,
+        "pause-on-hover": false,
+        "image": "shopify://shop_images/image.jpg",
+        "link-url": "shopify://collections/all",
+        "link-text": "",
+        "mobile-full-width": true,
+        "mobile-spacing-above": "none",
+        "mobile-spacing-below": "none",
+        "mobile-image-display-type": "original",
+        "mobile-aspect-ratio": 134
+      }
+    },
+    "featured-blog": {
+      "type": "featured-blog",
+      "disabled": true,
+      "settings": {
+        "border": "none",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "background-color": "light",
+        "white-text": false,
+        "section-alignment": "center",
+        "block-alignment": "center",
+        "container-width": "4",
+        "tag-select": "pinned",
+        "show-cta": true,
+        "show-date": true,
+        "show-excerpt": true,
+        "blog": "news",
+        "blog-heading": "Blog posts",
+        "view-more-text": "View more",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half",
+        "mobile-heading-alignment": "left",
+        "mobile-media-layout": "slideshow"
+      }
+    },
+    "featured-text-2": {
+      "type": "featured-text",
+      "disabled": true,
+      "settings": {
+        "border": "both",
+        "spacing-above": "half",
+        "spacing-below": "half",
+        "background-color": "dark",
+        "outer-background": true,
+        "white-text": true,
+        "text-alignment": "center",
+        "heading-type": "section-heading",
+        "container-width": "1",
+        "overline": "Troubleshooting and feedback",
+        "heading": "Any questions about the theme?",
+        "highlight-type": "italic",
+        "highlight-color": "#ffdd66",
+        "highlight-text": "#000000",
+        "description": "<p>We're passionate in helping small businesses get their ideas out into the world and compete with industry champions. Our themes are highly versatile and designed to accelerate and elevate any business to new heights. If there's anything getting in the way of your success, we want to hear about it!</p>",
+        "link-url": "https://support.troopthemes.com?utm_source=new_install&utm_medium=new_install",
+        "link-text": "Contact theme support",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_F4YPYW",
+    "slideshow",
+    "custom_liquid_3dPbqL",
+    "grid-with-overlay",
+    "dual_banner_section_6YDz8X",
+    "177002877384b3f3e6",
+    "text_columns_DTAMmg",
+    "dual_banner_section_Gd9YdA",
+    "featured_products_qTJpe7",
+    "dual_banner_section_ijdacg",
+    "featured_products_g6EcLV",
+    "dual_banner_section_9BTB6U",
+    "collection-with-highlight",
+    "shop-the-look",
+    "image-comparison",
+    "featured-product",
+    "shop-the-banner",
+    "testimonials",
+    "featured-video",
+    "newsletter",
+    "scrolling-text-on-image",
+    "featured-blog",
+    "featured-text-2"
+  ]
+}

@@ -1,0 +1,213 @@
+{%- comment -%}
+  Reusable snippet for filter sidebar content
+  Used in both desktop sidebar and mobile drawer
+{%- endcomment -%}
+
+{%- liquid
+  assign ajax_url = collection.url | append: '?'
+  unless collection.current_vendor == blank and collection.current_type == blank
+    assign ajax_url = collection.url | append: '&'
+  endunless
+-%}
+
+<div class="collection-filters-sidebar--root">
+  <div class="collection-filters-sidebar--wrapper">
+    
+    {%- comment -%} Active Filters Display {%- endcomment -%}
+    {%- if collection.filters.size > 0 -%}
+      {%- assign has_active_filters = false -%}
+      {%- for filter in collection.filters -%}
+        {%- if filter.active_values.size > 0 -%}
+          {%- assign has_active_filters = true -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+      
+      {%- if has_active_filters -%}
+        <div class="active-filters--container">
+          <div class="active-filters--header">
+            <span class="active-filters--title" data-item="block-heading">Active Filters</span>
+            <a href="{{ collection.url }}" class="active-filters--clear-all" data-item="link-text">
+              Clear all
+            </a>
+          </div>
+          
+          <div class="active-filters--tags">
+            {%- for filter in collection.filters -%}
+              {%- for filter_value in filter.active_values -%}
+                <a 
+                  href="{{ filter_value.url_to_remove }}" 
+                  class="active-filter--tag"
+                  data-item="tag"
+                >
+                  <span>{{ filter.label }}: {{ filter_value.label }}</span>
+                  {%- render 'icons', icon: 'cross' -%}
+                </a>
+              {%- endfor -%}
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- comment -%} Filter Form {%- endcomment -%}
+    <form class="collection-filters--form" id="CollectionFiltersForm">
+      
+      {%- comment -%} Product Count {%- endcomment -%}
+      <div class="filters--product-count" data-item="caption">
+        {{ collection.products_count }} 
+        {%- if collection.products_count == 1 -%}
+          product
+        {%- else -%}
+          products
+        {%- endif -%}
+      </div>
+
+      {%- if collection.filters.size > 0 -%}
+        {%- for filter in collection.filters -%}
+          
+          <div class="filter--group" data-filter-type="{{ filter.type }}">
+            <details class="filter--details" {% if forloop.index <= 3 %}open{% endif %}>
+              <summary class="filter--summary" data-item="block-heading">
+                {{ filter.label }}
+                <span class="filter--icon">
+                  {%- render 'icons', icon: 'chevron-down' -%}
+                </span>
+              </summary>
+
+              <div class="filter--options">
+                {%- case filter.type -%}
+                  
+                  {%- when 'price_range' -%}
+                    <div class="filter--price-range">
+                      <div class="price-range--inputs">
+                        <div class="price-input--wrapper">
+                          <span class="price-input--label" data-item="caption">Min</span>
+                          <input
+                            type="number"
+                            name="{{ filter.min_value.param_name }}"
+                            id="Filter-{{ filter.label | escape }}-min"
+                            class="price-input"
+                            data-item="input"
+                            {%- if filter.min_value.value -%}
+                              value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                            {%- endif -%}
+                            placeholder="0"
+                            min="0"
+                            max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                          >
+                        </div>
+                        
+                        <span class="price-range--separator">-</span>
+                        
+                        <div class="price-input--wrapper">
+                          <span class="price-input--label" data-item="caption">Max</span>
+                          <input
+                            type="number"
+                            name="{{ filter.max_value.param_name }}"
+                            id="Filter-{{ filter.label | escape }}-max"
+                            class="price-input"
+                            data-item="input"
+                            {%- if filter.max_value.value -%}
+                              value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                            {%- endif -%}
+                            placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                            min="0"
+                            max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                  {%- when 'list', 'boolean' -%}
+                    <ul class="filter--list">
+                      {%- for filter_value in filter.values -%}
+                        <li class="filter--list-item">
+                          <label class="filter--checkbox-label" data-item="paragraph">
+                            <input
+                              type="checkbox"
+                              name="{{ filter_value.param_name }}"
+                              value="{{ filter_value.value }}"
+                              id="Filter-{{ filter.label | escape }}-{{ forloop.index }}"
+                              class="filter--checkbox"
+                              {% if filter_value.active %}checked{% endif %}
+                              {% if filter_value.count == 0 and filter_value.active == false %}disabled{% endif %}
+                            >
+                            <span class="filter--checkbox-label-text">
+                              {{ filter_value.label }}
+                            </span>
+                            <span class="filter--count" data-item="caption">
+                              ({{ filter_value.count }})
+                            </span>
+                          </label>
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+
+                {%- endcase -%}
+              </div>
+            </details>
+          </div>
+
+        {%- endfor -%}
+      {%- endif -%}
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+  // Auto-apply filters on checkbox change
+  document.querySelectorAll('.filter--checkbox').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      const form = document.getElementById('CollectionFiltersForm');
+      const formData = new FormData(form);
+      const params = new URLSearchParams(window.location.search);
+      
+      // Clear existing filter params
+      const keysToDelete = [];
+      for (const key of params.keys()) {
+        if (key.startsWith('filter.')) {
+          keysToDelete.push(key);
+        }
+      }
+      keysToDelete.forEach(key => params.delete(key));
+      
+      // Add new filter params
+      for (const [key, value] of formData.entries()) {
+        if (value) {
+          params.append(key, value);
+        }
+      }
+      
+      // Navigate to filtered URL
+      window.location.href = '{{ collection.url }}?' + params.toString();
+    });
+  });
+
+  // Apply price filters on Enter
+  document.querySelectorAll('.price-input').forEach(input => {
+    input.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const form = document.getElementById('CollectionFiltersForm');
+        const formData = new FormData(form);
+        const params = new URLSearchParams(window.location.search);
+        
+        // Clear existing price filter params
+        params.delete('filter.v.price.gte');
+        params.delete('filter.v.price.lte');
+        
+        // Add new price params
+        for (const [key, value] of formData.entries()) {
+          if (value && (key.includes('price.gte') || key.includes('price.lte'))) {
+            params.set(key, value);
+          }
+        }
+        
+        window.location.href = '{{ collection.url }}?' + params.toString();
+      }
+    });
+  });
+</script>

@@ -1,0 +1,101 @@
+{%- liquid
+  assign previous_t = 'general.pagination.previous' | t
+  assign next_t = 'general.pagination.next' | t
+  assign first_t = 'general.pagination.first' | t
+  assign last_t = 'general.pagination.last' | t
+  assign of_t = 'general.pagination.of' | t
+
+  assign hash = ''
+  if view == 'blog-comments'
+    assign hash = '#comments'
+  elsif view == 'collection'
+    assign hash = '#collection_root'
+  elsif view == 'search'
+    assign hash = '#search_root'
+  endif
+
+  if paginate.previous or paginate.next
+    for part in paginate.parts
+      if forloop.first and paginate.previous
+        capture first_link
+          echo part.url
+        endcapture
+        continue
+      endif
+
+      if forloop.last and paginate.next
+        capture last_link
+          echo part.url
+        endcapture
+      endif
+    endfor
+  endif
+
+  assign previous_tag = 'div'
+  if paginate.previous
+    assign previous_tag = 'a'
+  endif
+
+  assign next_tag = 'div'
+  if paginate.next
+    assign next_tag = 'a'
+  endif
+-%}
+
+<div class="pagination--root" data-item="nav-text">
+  <{{ previous_tag }}
+    class="pagination--link"
+    {% if paginate.previous %}
+      href="{{ first_link }}{{ hash }}"
+      role="button"
+      aria-label="{{ first_t }}"
+    {% else %}
+      aria-hidden="true"
+    {% endif %}
+  >
+    {%- render 'icons', icon: 'first' -%}
+  </{{ previous_tag }}>
+
+  <{{ previous_tag }}
+    class="pagination--link"
+    {% if paginate.previous %}
+      href="{{ paginate.previous.url }}{{ hash }}"
+      role="button"
+      aria-label="{{ previous_t }}"
+    {% else %}
+      aria-hidden="true"
+    {% endif %}
+  >
+    {%- render 'icons', icon: 'chevron-left' -%}
+  </{{ previous_tag }}>
+
+  <div class="pagination--of">
+    {{- paginate.current_page }} {{ of_t }} {{ paginate.pages -}}
+  </div>
+
+  <{{ next_tag }}
+    class="pagination--link"
+    {% if paginate.next %}
+      href="{{ paginate.next.url }}{{ hash }}"
+      role="button"
+      aria-label="{{ next_t }}"
+    {% else %}
+      aria-hidden="true"
+    {% endif %}
+  >
+    {%- render 'icons', icon: 'chevron-right' -%}
+  </{{ next_tag }}>
+
+  <{{ next_tag }}
+    class="pagination--link"
+    {% if paginate.next %}
+      href="{{ last_link }}{{ hash }}"
+      role="button"
+      aria-label="{{ last_t }}"
+    {% else %}
+      aria-hidden="true"
+    {% endif %}
+  >
+    {%-  render 'icons', icon: 'last' -%}
+  </{{ next_tag }}>
+</div>

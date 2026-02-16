@@ -1,0 +1,90 @@
+{%- liquid
+  assign current_variant = product.selected_or_first_available_variant
+
+  if block_settings
+    assign variant_style = block_settings.variant-style
+    assign size_chart_enabled = block_settings.size-chart-enabled
+    assign size_chart_option = block_settings.size-chart-option | strip | downcase
+    assign swatches = block_settings.swatches
+  endif
+-%}
+
+{%- unless product.has_only_default_variant -%}
+  <product-options-element
+    class="product-options--root"
+    data-id="{{ id }}"
+    data-main-product="{{ main_product }}"
+    data-product-handle="{{ product.handle }}"
+    data-product-url="{{ product.url }}"
+    aria-busy="false"
+  >
+    <div class="product-options--container" data-container="block">
+      {%- for option in product.options_with_values -%}
+        <div class="product-options--option" data-index="{{ forloop.index0 }}">
+          {%- liquid
+            assign option_name = option.name | strip | downcase
+            assign swatch_count = option.values | map: 'swatch' | compact | size
+
+            if swatches != 'none' and swatch_count > 0
+              render 'swatches', option: option, id: id, shape: swatches, grid_item: false
+            elsif variant_style == 'dropdowns'
+              render 'disclosure', display_label: true, label_name: option.name, option_names: option.values, current_value: option.selected_value, id: id, type: 'option-picker'
+            else
+              render 'radios', option: option, id: id
+            endif
+
+            comment
+              "The size chart link gets moved with JS"
+            endcomment
+          -%}
+
+          {%- if size_chart_enabled and size_chart_option == option_name -%}
+            <div class="product-size-chart--root" style="display:none;">
+              <modal-trigger
+                class="product-size-chart--link"
+                data-id="{{ id }}_size-chart"
+                data-item="block-link"
+                aria-haspopup="true"
+                tabindex="0"
+              >
+                <span>
+                  {{- 'products.size_chart' | t -}}
+                </span>
+              </modal-trigger>
+            </div>
+          {%- endif -%}
+        </div>
+
+        {%- liquid
+          unless current_variant
+            capture variant_title
+              echo variant_title
+              echo option.selected_value
+
+              unless forloop.last
+                echo ' / '
+              endunless
+            endcapture
+          endunless
+        -%}
+      {%- endfor -%}
+    </div>
+
+    <script type="application/json" id="variant-json-{{ id }}">
+      {%- liquid
+        if current_variant
+          assign inventory_policy = current_variant.inventory_policy
+          assign policy_insert = '"inventory_policy":"' | append: inventory_policy | append: '",'
+
+          assign inventory_quantity = current_variant.inventory_quantity | default: 0
+          assign quantity_insert = '"inventory_quantity":' | append: inventory_quantity | append: ','
+
+          assign inserts = policy_insert | append: quantity_insert | append: '"id"'
+          echo current_variant | json | replace: '"id"', inserts
+        else
+          echo '{ "public_title": "' | append: variant_title | append: '" }'
+        endif
+      -%}
+    </script>
+  </product-options-element>
+{%- endunless -%}

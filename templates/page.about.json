@@ -1,0 +1,336 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "16324732604d3e7054": {
+      "type": "image-with-text",
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "half",
+        "background-color": "none",
+        "container-width": "6",
+        "white-text": false,
+        "overlap": false,
+        "heading-type": "block-heading",
+        "text-position": "overlay",
+        "text-horizontal-alignment": "center",
+        "text-vertical-alignment": "center",
+        "text-width": "large",
+        "text-style": "none",
+        "text-background-color": "transparent",
+        "image-display-type": "medium",
+        "aspect-ratio": 54,
+        "overlay-style": "none",
+        "parallax-enabled": false,
+        "image": "shopify://shop_images/Untitled_design_-_2025-03-21T113856.464.webp",
+        "overline": "",
+        "title": "Welcome to Enhance Glow",
+        "highlight-type": "italic",
+        "highlight-color": "#ffdd66",
+        "highlight-text": "#000000",
+        "description": "<p>Premium Skincare, Hair care & Beauty Brands, eCommerce website from Dubai.<br/><br/>From luxurious hair care to soothing skin treatments, nail essentials, men’s grooming, gentle baby care, and the latest in beauty gadgets - we bring you the brands that help you glow, grow, and enhance your natural beauty.<br/></p>",
+        "link-url": "",
+        "link-text": "",
+        "mobile-full-width": true,
+        "mobile-spacing-above": "none",
+        "mobile-spacing-below": "none",
+        "mobile-overlay": true,
+        "mobile-hide-description": false,
+        "mobile-image-display-type": "small",
+        "mobile-aspect-ratio": 124,
+        "mobile-text-alignment": "center"
+      }
+    },
+    "main": {
+      "type": "page",
+      "settings": {
+        "show-title": false,
+        "background-color": "none",
+        "white-text": false,
+        "container-width": "1",
+        "spacing-above": "none",
+        "spacing-below": "full",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    },
+    "featured_text_h44QP9": {
+      "type": "featured-text",
+      "name": "Rich text",
+      "settings": {
+        "border": "none",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "background-color": "none",
+        "outer-background": true,
+        "white-text": false,
+        "text-alignment": "center",
+        "heading-type": "section-heading",
+        "container-width": "4",
+        "overline": "",
+        "heading": "About Us",
+        "highlight-type": "italic",
+        "highlight-color": "#FFDD66",
+        "highlight-text": "#000000",
+        "description": "<p>At Enhance Glow, we are redefining the beauty and grooming shopping experience by curating a premium, all-inclusive eCommerce destination. With a vision to become the most trusted one-stop shop for high-end cosmetics, we offer an exceptional selection of beauty, haircare, skincare, grooming essentials for gentlemen, and professional-grade hair tools — all from globally renowned, luxury brands.<br/><br/>Our platform is designed for those who value quality, authenticity, and convenience, catering to both personal and professional needs. From award-winning serums and salon-grade shampoos to top-of-the-line dryers and stylers, every product we house is chosen to elevate your self-care experience.</p>",
+        "link-url": "/",
+        "link-text": "",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    },
+    "text_columns_7J7ncT": {
+      "type": "text-columns",
+      "blocks": {
+        "image_qVKACK": {
+          "type": "image",
+          "settings": {
+            "show-image": false,
+            "title": "Our Vision",
+            "description": "<p>To build a world-class eCommerce ecosystem that brings together the best of beauty and grooming in one place — starting with the GCC region and expanding to global delivery. We aim to empower individuals across borders to access premium cosmetics with ease, confidence, and trust.</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "image_fLfi3y": {
+          "type": "image",
+          "settings": {
+            "show-image": false,
+            "title": "Our Promise",
+            "description": "<p>100% Authentic, Premium Brands.<br/><br/>Curated Range for Men and Women.<br/><br/>Fast & Reliable Shipping Across the GCC.<br/><br/>Seamless Global Delivery Coming Soon.</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        },
+        "image_VkPXpB": {
+          "type": "image",
+          "settings": {
+            "show-image": false,
+            "title": "Exceptional Customer Experience",
+            "description": "<p>Whether you're a beauty enthusiast, a professional stylist, or someone who simply enjoys quality self-care, Enhance Glow is your ultimate destination for everything beauty — delivered to your doorstep.</p>",
+            "link-url": "",
+            "link-text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_qVKACK",
+        "image_fLfi3y",
+        "image_VkPXpB"
+      ],
+      "name": "Text columns with images",
+      "settings": {
+        "border": "none",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "block-spacing": true,
+        "background-color": "none",
+        "white-text": false,
+        "section-alignment": "center",
+        "text-alignment": "center",
+        "container-width": "4",
+        "width": 3,
+        "aspect-ratio": "square",
+        "image-width": 0,
+        "overline": "",
+        "heading": "",
+        "description": "",
+        "link-url": "",
+        "link-text": "",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half",
+        "mobile-heading-alignment": "left",
+        "mobile-width": "1",
+        "mobile-media-layout": "slideshow"
+      }
+    },
+    "featured_text_TaK8Kt": {
+      "type": "featured-text",
+      "name": "Rich text",
+      "settings": {
+        "border": "none",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "background-color": "none",
+        "outer-background": true,
+        "white-text": false,
+        "text-alignment": "center",
+        "heading-type": "section-heading",
+        "container-width": "4",
+        "overline": "",
+        "heading": "",
+        "highlight-type": "italic",
+        "highlight-color": "#FFDD66",
+        "highlight-text": "#000000",
+        "description": "<p><strong>Contact information :</strong></p><p><strong>E-mail : </strong><a href=\"mailto:info@enhanceglow.com\" title=\"mailto:info@enhanceglow.com\">info@enhanceglow.com</a><br/><strong>Phone : </strong><a href=\"tel:+971505854326\" title=\"tel:+971505854326\">+971505854326</a></p><p><strong>Business information :<br/>Enhance Glow</strong> is owned and operated by Purple Beauty Cosmetics Trading Co L.L.C , a company registered in the United Arab Emirates. Our trade license number is 1475736.</p><p><strong>Address : </strong>Office 1M-17, Capitol Warehouse, 26th St, Al Marabea Street, Al Quoz 4, Dubai, United Arab Emirates. <br/>P.O. Box: 62793<br/><br/></p><p><strong>Customer Services Hours :<br/></strong>Mon - Sun : 8:00 am - 7:00 pm<br/></p><p>Contact us now. We will do our best to reply to your e-mail within same day.</p>",
+        "link-url": "/",
+        "link-text": "",
+        "mobile-spacing-above": "full",
+        "mobile-spacing-below": "full"
+      }
+    },
+    "16324732989269ca2c": {
+      "type": "featured-text",
+      "disabled": true,
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "full",
+        "background-color": "none",
+        "outer-background": true,
+        "white-text": false,
+        "text-alignment": "left",
+        "heading-type": "section-heading",
+        "container-width": "4",
+        "overline": "Welcome to the ultimate beauty destination – your go-to e-commerce platform for everything self-care and beyond.",
+        "heading": "",
+        "highlight-type": "italic",
+        "highlight-color": "#ffdd66",
+        "highlight-text": "#000000",
+        "description": "<p></p><ul><li>Hair Care – Nourish, repair, and style with salon-quality formulas.</li></ul><p></p><ul><li>Skin Care – Revitalize your glow with science-backed skincare.</li></ul><p></p><ul><li>Nail Care – Keep your nails polished, healthy, and on point.</li></ul><p></p><ul><li>Men’s Care – Tailored grooming for the modern successful man.</li></ul><p></p><ul><li>Baby Care – Gentle products for the softest skin and happiest babies.</li></ul><p></p><ul><li>Beauty Gadgets – From facial rollers to LED therapy, experience the future of beauty.<br/><br/></li></ul><p>With our handpicked selection of top brands, achieving your beauty goals has never been easier or more affordable. </p><p><br/>Shop now – because beauty starts with care.</p><p></p>",
+        "link-url": "",
+        "link-text": "",
+        "mobile-spacing-above": "none",
+        "mobile-spacing-below": "half"
+      }
+    },
+    "163247330191cc65e8": {
+      "type": "image-with-text",
+      "disabled": true,
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "full",
+        "background-color": "none",
+        "container-width": "2",
+        "white-text": false,
+        "overlap": false,
+        "heading-type": "section-heading",
+        "text-position": "left",
+        "text-horizontal-alignment": "center",
+        "text-vertical-alignment": "center",
+        "text-width": "small",
+        "text-style": "none",
+        "text-background-color": "transparent",
+        "image-display-type": "medium",
+        "aspect-ratio": 56,
+        "overlay-style": "darken-bottom",
+        "parallax-enabled": false,
+        "overline": "Overline text",
+        "title": "Image with Text",
+        "highlight-type": "italic",
+        "highlight-color": "#ffdd66",
+        "highlight-text": "#000000",
+        "description": "<p>Combine imagery with text to create stand-out campaign sections, eye-catching promotions, information blocks and more.</p>",
+        "link-url": "",
+        "link-text": "",
+        "mobile-full-width": true,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half",
+        "mobile-overlay": true,
+        "mobile-hide-description": false,
+        "mobile-image-display-type": "original",
+        "mobile-aspect-ratio": 134,
+        "mobile-text-alignment": "center"
+      }
+    },
+    "1632473305029b8e81": {
+      "type": "image-with-text",
+      "disabled": true,
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "full",
+        "background-color": "none",
+        "container-width": "2",
+        "white-text": false,
+        "overlap": false,
+        "heading-type": "section-heading",
+        "text-position": "right",
+        "text-horizontal-alignment": "center",
+        "text-vertical-alignment": "center",
+        "text-width": "small",
+        "text-style": "none",
+        "text-background-color": "transparent",
+        "image-display-type": "medium",
+        "aspect-ratio": 56,
+        "overlay-style": "darken-bottom",
+        "parallax-enabled": false,
+        "overline": "Overline text",
+        "title": "Image with Text",
+        "highlight-type": "italic",
+        "highlight-color": "#ffdd66",
+        "highlight-text": "#000000",
+        "description": "<p>Combine imagery with text to create stand-out campaign sections, eye-catching promotions, information blocks and more.</p>",
+        "link-url": "",
+        "link-text": "",
+        "mobile-full-width": true,
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half",
+        "mobile-overlay": true,
+        "mobile-hide-description": false,
+        "mobile-image-display-type": "original",
+        "mobile-aspect-ratio": 134,
+        "mobile-text-alignment": "center"
+      }
+    },
+    "1632473398c42b6136": {
+      "type": "featured-video",
+      "settings": {
+        "border": "none",
+        "spacing-above": "none",
+        "spacing-below": "none",
+        "background-color": "none",
+        "container-width": "6",
+        "white-text": true,
+        "text-width": "medium",
+        "text-horizontal-alignment": "center",
+        "text-vertical-alignment": "center",
+        "text-style": "none",
+        "text-background-color": "transparent",
+        "heading-type": "featured-heading",
+        "autoplay": true,
+        "video-display-type": "aspect-ratio",
+        "aspect-ratio": 56,
+        "play-button-style": "solid",
+        "overlay-style": "darken-bottom",
+        "video-upload": "shopify://files/videos/Pink and White Clean Minimalist Beauty Skin Product Promotion Video.mp4",
+        "video-url": "",
+        "overline": "",
+        "heading": "",
+        "highlight-type": "italic",
+        "highlight-color": "#ffdd66",
+        "highlight-text": "#000000",
+        "description": "",
+        "button-text": "",
+        "button-url": "",
+        "mobile-spacing-above": "none",
+        "mobile-spacing-below": "none",
+        "mobile-full-width": true,
+        "mobile-video-display-type": "original",
+        "mobile-aspect-ratio": 134,
+        "mobile-text-alignment": "center",
+        "mobile-hide-description": false
+      }
+    }
+  },
+  "order": [
+    "16324732604d3e7054",
+    "main",
+    "featured_text_h44QP9",
+    "text_columns_7J7ncT",
+    "featured_text_TaK8Kt",
+    "16324732989269ca2c",
+    "163247330191cc65e8",
+    "1632473305029b8e81",
+    "1632473398c42b6136"
+  ]
+}

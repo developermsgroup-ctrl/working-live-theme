@@ -1,0 +1,249 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "featured_text_pzkjAP": {
+      "type": "featured-text",
+      "name": "Rich text",
+      "settings": {
+        "border": "none",
+        "spacing-above": "full",
+        "spacing-below": "full",
+        "background-color": "none",
+        "outer-background": true,
+        "white-text": false,
+        "text-alignment": "center",
+        "heading-type": "section-heading",
+        "container-width": "4",
+        "overline": "",
+        "heading": "Shop by Brands",
+        "highlight-type": "italic",
+        "highlight-color": "#ffdd66",
+        "highlight-text": "#000000",
+        "description": "<p>Promotions, new products and sales. Directly to your inbox.</p>",
+        "link-url": "/",
+        "link-text": "",
+        "mobile-spacing-above": "half",
+        "mobile-spacing-below": "half"
+      }
+    },
+    "main": {
+      "type": "page-brandslist",
+      "blocks": {
+        "1562225793110": {
+          "type": "character",
+          "settings": {
+            "title": "a",
+            "linklist": "a"
+          }
+        },
+        "1562225801379": {
+          "type": "character",
+          "settings": {
+            "title": "b",
+            "linklist": "b"
+          }
+        },
+        "1562225804072": {
+          "type": "character",
+          "settings": {
+            "title": "c",
+            "linklist": "c"
+          }
+        },
+        "character_8FpVqD": {
+          "type": "character",
+          "settings": {
+            "title": "d",
+            "linklist": "d"
+          }
+        },
+        "character_qCmBWE": {
+          "type": "character",
+          "settings": {
+            "title": "e",
+            "linklist": "e"
+          }
+        },
+        "character_QkTig7": {
+          "type": "character",
+          "settings": {
+            "title": "f",
+            "linklist": "f"
+          }
+        },
+        "character_eKrTAA": {
+          "type": "character",
+          "settings": {
+            "title": "g",
+            "linklist": "g"
+          }
+        },
+        "character_yHJeJX": {
+          "type": "character",
+          "settings": {
+            "title": "h",
+            "linklist": "h"
+          }
+        },
+        "character_xPzJkC": {
+          "type": "character",
+          "settings": {
+            "title": "i",
+            "linklist": "i"
+          }
+        },
+        "character_ch8EL8": {
+          "type": "character",
+          "settings": {
+            "title": "j",
+            "linklist": "j"
+          }
+        },
+        "character_jYQpzR": {
+          "type": "character",
+          "settings": {
+            "title": "k",
+            "linklist": "k-1"
+          }
+        },
+        "character_7RRAxX": {
+          "type": "character",
+          "settings": {
+            "title": "l",
+            "linklist": "l"
+          }
+        },
+        "character_px94zq": {
+          "type": "character",
+          "settings": {
+            "title": "m",
+            "linklist": "m"
+          }
+        },
+        "1562664116930": {
+          "type": "character",
+          "settings": {
+            "title": "n",
+            "linklist": "n"
+          }
+        },
+        "1562664124153": {
+          "type": "character",
+          "settings": {
+            "title": "o",
+            "linklist": "o"
+          }
+        },
+        "character_rLyzJF": {
+          "type": "character",
+          "settings": {
+            "title": "p",
+            "linklist": "p"
+          }
+        },
+        "1562665381910": {
+          "type": "character",
+          "settings": {
+            "title": "q",
+            "linklist": "q"
+          }
+        },
+        "character_PikmeV": {
+          "type": "character",
+          "settings": {
+            "title": "r",
+            "linklist": "r"
+          }
+        },
+        "character_YAdmFT": {
+          "type": "character",
+          "settings": {
+            "title": "s",
+            "linklist": "s"
+          }
+        },
+        "character_gFJcam": {
+          "type": "character",
+          "settings": {
+            "title": "t",
+            "linklist": "t"
+          }
+        },
+        "character_BTQTKD": {
+          "type": "character",
+          "settings": {
+            "title": "u",
+            "linklist": "u"
+          }
+        },
+        "character_XxnQjX": {
+          "type": "character",
+          "settings": {
+            "title": "v",
+            "linklist": "v"
+          }
+        },
+        "character_jBQj78": {
+          "type": "character",
+          "settings": {
+            "title": "w",
+            "linklist": "w"
+          }
+        }
+      },
+      "block_order": [
+        "1562225793110",
+        "1562225801379",
+        "1562225804072",
+        "character_8FpVqD",
+        "character_qCmBWE",
+        "character_QkTig7",
+        "character_eKrTAA",
+        "character_yHJeJX",
+        "character_xPzJkC",
+        "character_ch8EL8",
+        "character_jYQpzR",
+        "character_7RRAxX",
+        "character_px94zq",
+        "1562664116930",
+        "1562664124153",
+        "character_rLyzJF",
+        "1562665381910",
+        "character_PikmeV",
+        "character_YAdmFT",
+        "character_gFJcam",
+        "character_BTQTKD",
+        "character_XxnQjX",
+        "character_jBQj78"
+      ],
+      "custom_css": [
+        ".container {padding-left: 50px; /* Adjust as needed */ padding-right: 50px; /* Adjust as needed */}",
+        ".link_brand li a {font-size: 1rem !important;}"
+      ],
+      "settings": {
+        "animation": "",
+        "setwidth": "container",
+        "bgsection": "",
+        "title_top": "",
+        "title": "Featured Brands",
+        "des": "Promotions, new products and sales. Directly to your inbox.",
+        "paddingsection": "0px 0px 40px 0px",
+        "paddingmobile": "0px 0px 40px 0px",
+        "marginsection": "0px 0px 0px 0px",
+        "marginmobile": "0px 0px 0px 0px"
+      }
+    }
+  },
+  "order": [
+    "featured_text_pzkjAP",
+    "main"
+  ]
+}

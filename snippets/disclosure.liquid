@@ -1,0 +1,111 @@
+{% comment %} Usage:
+  - if option_values != option_names, arrays should have matched indices
+  - current_value and input_name are needed for some forms (ie. localization)
+  - current_value should exist within option_values
+{% endcomment %}
+
+{%- liquid
+  unless option_values
+    assign option_values = option_names
+  endunless
+
+  capture disclosure_name
+    assign label = label_name | downcase | remove: ' '
+    echo id | downcase | append: '-' | append: label
+  endcapture
+-%}
+
+<disclosure-element
+  class="disclosure--root"
+  data-id="{{ id | downcase }}"
+  {%- if type != blank -%}
+    data-type="{{ type }}"
+  {%- endif -%}
+>
+  <label
+    class="disclosure--label"
+    id="{{ disclosure_name }}-toggle"
+    {% if display_label %}
+      data-item="nav-text"
+    {% else %}
+      data-item="hidden-text"
+    {% endif %}
+  >
+    {%- comment -%} label_name needed for a11y {%- endcomment -%}
+    <span>{{- label_name | escape -}}</span>
+  </label>
+
+  <div class="disclosure--main">
+    <button
+      class="disclosure--toggle"
+      data-item="nav-text"
+      aria-expanded="false"
+      aria-controls="{{ disclosure_name }}"
+      aria-labelledby="{{ disclosure_name }}-toggle"
+    >
+      {%- liquid
+        echo '<div class="disclosure--current-option">'
+          if current_value
+            for value in option_values
+              if value == current_value
+                echo option_names[forloop.index0]
+                break
+              endif
+            endfor
+          endif
+        echo '</div>'
+
+        render 'icons', icon: 'chevron-down'
+      -%}
+    </button>
+    <ul
+      class="disclosure--form"
+      id="{{ disclosure_name }}"
+      data-transition-item="viewport"
+      data-transition-type="scale-in"
+      data-transition-trigger="custom"
+      aria-hidden="true"
+    >
+      {%- for name in option_names -%}
+        {%- assign option_value = option_values[forloop.index0] -%}
+        <li
+          class="disclosure--option"
+          tabindex="0"
+          data-item="sub-nav-text"
+          data-value="{{ option_value | escape }}"
+          {% if option_value.id %}
+            data-option-value-id="{{ option_value.id }}"
+            data-option-name="{{ label_name | strip | downcase }}"
+            data-product-url="{{ option_value.product_url }}"
+            {% unless option_value.available %}
+              data-unavailable="true"
+            {% endunless %}
+          {% endif %}
+          {% if option_value == current_value %}
+            aria-current="true"
+          {% else %}
+            aria-current="false"
+          {% endif %}
+        >
+          {{ name }}
+        </li>
+      {%- endfor -%}
+    </ul>
+    <input
+      class="disclosure--input"
+      type="hidden"
+      {% if input_name %}
+        name="{{ input_name }}"
+      {% endif %}
+      {% if current_value %}
+        value="{{ current_value | escape }}"
+      {% endif %}
+      {% if current_value.id %}
+        data-option-value-id="{{ current_value.id }}"
+        data-option-name="{{ label_name | strip | downcase }}"
+        data-product-url="{{ current_value.product_url }}"
+      {% endif %}
+      data-item="disclosure"
+    />
+  </div>
+</disclosure-element>

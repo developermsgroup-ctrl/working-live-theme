@@ -1,0 +1,56 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "article",
+      "custom_css": [
+        "picture.image--root.article--image img {object-fit: contain; aspect-ratio: 4/3;}"
+      ],
+      "settings": {
+        "show-featured": true,
+        "heading-position": "below",
+        "show-date": true,
+        "show-author": true
+      }
+    },
+    "navigation": {
+      "type": "article-navigation",
+      "settings": {
+        "show-tags": true,
+        "facebook-enabled": true,
+        "x-enabled": true,
+        "pinterest-enabled": true,
+        "email-enabled": true,
+        "url-enabled": true
+      }
+    },
+    "recents": {
+      "type": "article-recents",
+      "settings": {
+        "heading-alignment": "center"
+      }
+    },
+    "comments": {
+      "type": "article-comments",
+      "settings": {
+        "show-comments": true,
+        "disqus-enabled": false,
+        "disqus-shortname": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "navigation",
+    "recents",
+    "comments"
+  ]
+}

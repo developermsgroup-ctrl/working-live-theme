@@ -1,0 +1,79 @@
+{%- liquid
+  assign accent_1_translucent = settings.color--accent-1 | color_to_rgb | color_modify: 'alpha', 0.85
+  assign accent_2_translucent = settings.color--accent-2 | color_to_rgb | color_modify: 'alpha', 0.85
+  assign light_translucent = settings.bg-color--light | color_to_rgb | color_modify: 'alpha', 0.85
+  assign body_translucent = settings.bg-color--body | color_to_rgb | color_modify: 'alpha', 0.85
+  assign dark_translucent = settings.bg-color--dark | color_to_rgb | color_modify: 'alpha', 0.85 | color_darken: 10
+  assign border_opacity = settings.border--opacity | divided_by: 100.0
+-%}
+
+<style>
+  :root {
+    --color--accent-1: {{ settings.color--accent-1 }};
+    --color--accent-1-translucent: {{ accent_1_translucent }};
+    --color--accent-2: {{ settings.color--accent-2 }};
+    --color--accent-2-translucent: {{ accent_2_translucent }};
+    --color--body: {{ settings.color--body }};
+    --color--body--light: {{ settings.color--body | color_lighten: 19 }};
+    --color--success: #4caf50;
+    --color--gray: #e6e6e6;
+    --color--alert: {{ settings.color--alert }};
+
+    --bg-color--white: white;
+    --bg-color--light: {{ settings.bg-color--light }};
+    --bg-color--light-translucent: {{ light_translucent }};
+    --bg-color--dark: {{ settings.bg-color--dark }};
+    --bg-color--dark-translucent: {{ dark_translucent }};
+    --bg-color--accent-1: var(--color--accent-1);
+    --bg-color--accent-2: var(--color--accent-2);
+    --bg-color--body: {{ settings.bg-color--body }};
+    --bg-color--body-translucent: {{ body_translucent }};
+    --bg-color--textbox: #fff;
+
+    --border--dark: {{ settings.color--body | color_to_rgb | color_modify: 'alpha', border_opacity }};
+    --border--light: rgba(255, 255, 255, {{ border_opacity }});
+
+    --box-shadow--center: 0px 0px 10px rgba(0, 0, 0, 0.08);
+    --box-shadow--top: 0 -10px 10px -10px rgba(0, 0, 0, 0.2);
+    --box-shadow--left: -2px 0 10px -2px rgba(0, 0, 0, 0.2);
+    --box-shadow--right: 2px 0 10px -2px rgba(0, 0, 0, 0.2);
+    --box-shadow--bottom: 0 10px 10px -10px rgba(0, 0, 0, 0.2);
+
+    --content--shadow-opacity: {{ settings.content--shadow-opacity | divided_by: 100.0 }};
+    --content--image-opacity: {{ settings.content--image-opacity | divided_by: 100.0 | round: 3 }};
+
+    --button--color: {{ settings.color--button }};
+    --button--bg-color: {{ settings.bg-color--button }};
+    --button--bg-color--hover: var(--button--bg-color);
+    --button--bdr-color: {{ settings.bg-color--button }};
+    --button--color-disabled: #b9b9b9;
+    --button--radius: {{ settings.buttons--radius }}px;
+
+    --input--radius: {{ settings.inputs--radius }}px;
+    --image--radius: {{ settings.image--radius }}px;
+    --image--radius-enabled: {% if settings.image--radius > 0 %}1{% else %}0{% endif %};
+
+    --progress-bar: linear-gradient(
+                      90deg,
+                      {{ settings.bg-color--button | color_to_rgb | color_modify: 'alpha', 0.3 }} 0%,
+                      {{ settings.bg-color--button | color_to_rgb | color_modify: 'alpha', 1 }} 80%,
+                      {{ settings.bg-color--button | color_to_rgb | color_modify: 'alpha', 0.8 }}
+                    );
+
+    /* shop pay */
+    --payment-terms-background-color: {{ settings.bg-color--body }};
+
+    /* js helpers */
+    --announcement--height: 0px;
+    --header--height: 0px;
+    --split-announcement--height: 0px;
+
+    --sticky-offset: calc(var(--announcement--sticky, 0) * var(--announcement--height, 0px) + var(--header--sticky, 0) * var(--header--height, 0px));
+  }
+
+  shopify-accelerated-checkout, shopify-accelerated-checkout-cart {
+    --shopify-accelerated-checkout-button-block-size: 45px;
+    --shopify-accelerated-checkout-button-border-radius: var(--button--radius);
+    --shopify-accelerated-checkout-button-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+</style>

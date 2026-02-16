@@ -1,0 +1,262 @@
+<div class="dual-banner-section">
+  {% for block in section.blocks %}
+    {% assign img = block.settings.image %}
+    <a href="{{ block.settings.button_link }}" class="banner-block" {% if block.settings.button_link == blank %}onclick="return false;"{% endif %}>
+      <div class="banner-inner text-{{ block.settings.text_align }}">
+        {% if img %}
+          <div class="image-container">
+            <img
+              src="{{ img | image_url: width: 2500 }}"
+              width="2500"
+              height="900"
+              alt="{{ block.settings.headline | escape }}"
+              loading="lazy"
+            />
+          </div>
+        {% endif %}
+
+        <div class="text-overlay text-{{ block.settings.text_align }} text-size-{{ block.settings.text_size }}">
+          {% if block.settings.headline != blank %}
+            <h2>{{ block.settings.headline }}</h2>
+          {% endif %}
+          {% if block.settings.subheading != blank %}
+            <p>{{ block.settings.subheading }}</p>
+          {% endif %}
+          {% if block.settings.button_text != blank %}
+            <span
+              class="shopify-btn {% unless block.settings.use_custom_button %}default-btn{% endunless %}"
+              style="{% if block.settings.use_custom_button %}background-color: {{ block.settings.button_bg }}; color: {{ block.settings.button_text_color }};{% endif %}"
+            >
+              {{ block.settings.button_text }}
+            </span>
+          {% endif %}
+        </div>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
+<style>
+.dual-banner-section {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  max-width: 2500px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.banner-block {
+  display: block;
+  width: 100%;
+  height: 100%;
+  flex: 1 1 50%;
+  position: relative;
+  transition: flex 0.5s ease;
+  overflow: hidden;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.dual-banner-section:hover .banner-block {
+  flex: 1 1 35%;
+}
+
+.dual-banner-section .banner-block:hover {
+  flex: 1 1 65%;
+  z-index: 2;
+}
+
+.image-container {
+  width: 100%;
+  height: 0;
+  padding-bottom: 36%; /* 2500 x 900 = 16:5 aspect ratio */
+  position: relative;
+}
+
+.image-container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
+
+.banner-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+
+.text-overlay.text-left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.text-overlay.text-center {
+  align-items: center;
+  text-align: center;
+}
+
+.text-overlay.text-right {
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* Text size options */
+.text-overlay.text-size-small h2 { font-size: 1.2rem; }
+.text-overlay.text-size-small p { font-size: 0.9rem; }
+
+.text-overlay.text-size-medium h2 { font-size: 1.8rem; }
+.text-overlay.text-size-medium p { font-size: 1.1rem; }
+
+.text-overlay.text-size-large h2 { font-size: 2.5rem; }
+.text-overlay.text-size-large p { font-size: 1.4rem; }
+
+/* Button styles */
+.shopify-btn {
+  padding: 12px 24px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid #000;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.default-btn {
+  background: #fff;
+  color: #000;
+}
+
+.default-btn:hover {
+  background: #000;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .dual-banner-section {
+    flex-direction: column;
+  }
+
+  .banner-block {
+    flex: 1 1 100%;
+  }
+
+  .text-overlay {
+    padding: 20px;
+  }
+
+  .text-overlay.text-size-small h2 { font-size: 1rem; }
+  .text-overlay.text-size-small p { font-size: 0.8rem; }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Dual Banners",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Banner Image"
+        },
+        {
+          "type": "text",
+          "id": "headline",
+          "label": "Headline",
+          "default": "NEW IN"
+        },
+        {
+          "type": "text",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Collection or Feature"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Shop Now!"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Link to Collection"
+        },
+        {
+          "type": "select",
+          "id": "text_align",
+          "label": "Text Alignment",
+          "default": "center",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "text_size",
+          "label": "Text Size",
+          "default": "medium",
+          "options": [
+            { "value": "small", "label": "Small" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "large", "label": "Large" }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "use_custom_button",
+          "label": "Use custom button style",
+          "default": false
+        },
+        {
+          "type": "color",
+          "id": "button_bg",
+          "label": "Button Background Color",
+          "default": "#000000"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button Text Color",
+          "default": "#ffffff"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 2,
+  "presets": [
+    {
+      "name": "Dual Banners",
+      "blocks": [
+        { "type": "banner" },
+        { "type": "banner" }
+      ]
+    }
+  ]
+}
+{% endschema %}
