@@ -62,7 +62,8 @@
     render 'utils', name: 'sizes', columns: products_per_row_desktop, mobile_columns: products_per_row_mobile
   endcapture
 
-  assign products_per_page = total_grid_positions | minus: promo_grid_blocks
+  assign initial_rows = section.settings.initial-rows | default: 4
+  assign chunk_size = initial_rows | times: products_per_row_desktop
   assign promo_html_arr = promo_html | split: '<span class="divider"></span>'
 -%}
 
@@ -110,10 +111,20 @@
       element-relocator {
         display: block;
       }
+      .hidden { display: none !important; }
+      .main-collection--load-more {
+        text-align: center;
+        margin: 3rem 0;
+        padding: 1.5rem 0;
+      }
+      .load-more-button {
+        min-width: 180px;
+        padding: 1rem 2.5rem;
+        font-size: 1.1rem;
+      }
     </style>
-    
-    {%-
-      render 'navigation',
+
+    {%- render 'navigation',
       ajax_url: ajax_url,
       custom_collection_list: section.settings.custom-list-collections,
       mobile_buttons: 'browse,refine',
@@ -148,114 +159,169 @@
           swatches: section.settings.swatches
       -%}
     </element-relocator>
-        <div
-          class="main-collection--spinner"
-          aria-hidden="true"
-          data-container="block"
-          data-body-spinner
-        >
-          <div class="main-collection--spinner-wrapper" data-item="spinner">
+
+    <div
+      class="main-collection--spinner"
+      aria-hidden="true"
+      data-container="block"
+      data-body-spinner
+    >
+      <div class="main-collection--spinner-wrapper" data-item="spinner">
+        {%- render 'icons', icon: 'spinner' -%}
+      </div>
+    </div>
+
+    {%- paginate collection.products by chunk_size -%}
+
+      <div
+        class="main-collection--grid"
+        id="js-collection-grid-{{ section.id }}"
+        data-body-grid
+        data-container="panel"
+        data-columns="{{ products_per_row_desktop }}"
+        data-mobile-columns="{{ products_per_row_mobile }}"
+      >
+        {%- if collection.products_count > 0 -%}
+          {%- liquid
+            assign product_index = 0
+            for i in (1..10000)
+              assign grid_index = forloop.index
+              assign promo_index = false
+
+              for block in section.blocks
+                if block.settings.position == grid_index
+                  assign promo_index = forloop.index0
+                  assign promo_width = block.settings.promo-width
+                  break
+                endif
+              endfor
+
+              if promo_index
+                assign column = grid_index | modulo: products_per_row_desktop
+                if column == 0 and product_index == collection.products.size and promo_width == '2'
+                  break
+                else
+                  echo promo_html_arr[promo_index]
+                endif
+              elsif product_index < collection.products.size
+                assign product = collection.products[product_index]
+                assign product_index = product_index | plus: 1
+                assign loading = 'lazy'
+                if grid_index <= products_per_row_desktop
+                  assign loading = 'eager'
+                endif
+                render 'product-card', product_item: product, transition_id: section.id, sizes: sizes, loading: loading
+              else
+                break
+              endif
+            endfor
+          -%}
+        {%- elsif current_tags == blank -%}
+          <div class="main-collection--empty" data-container="block">
+            <p data-item="paragraph">
+              {{- no_products_t -}}
+            </p>
+            <a href="{{ routes.root_url }}" data-item="block-link">
+              <div>{{ continue_shopping_t }}</div>
+            </a>
+          </div>
+        {%- else -%}
+          <div class="main-collection--empty" data-container="block">
+            <p data-item="paragraph">
+              {{- filter_feedback_t -}}
+            </p>
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if paginate.pages > 1 -%}
+        <div class="main-collection--load-more">
+          <button
+            type="button"
+            class="button button--primary load-more-button"
+            id="load-more-{{ section.id }}"
+            data-next-url="{{ paginate.next.url | default: '' }}"
+            data-loading-text="Loading..."
+          >
+            Show more
+          </button>
+
+          <div id="load-spinner-{{ section.id }}" class="hidden">
             {%- render 'icons', icon: 'spinner' -%}
           </div>
         </div>
+      {%- endif -%}
 
-        {%- paginate collection.products by products_per_page -%}
-          {%- if paginate.pages > 1 -%}
-            <a data-item="a11y-button" href='#collection_pagination' data-body-pagination-link>
-              {{ skip_link_t }}
-            </a>
-          {%- endif -%}
+      <div class="main-collection--pagination" style="display: none !important;">
+        {%- if paginate.pages > 1 -%}
+          {%- render 'pagination', paginate: paginate, view: 'collection' -%}
+        {%- endif -%}
+      </div>
 
-          <div
-            class="main-collection--grid"
-            data-body-grid
-            data-container="panel"
-            data-columns="{{ products_per_row_desktop }}"
-            data-mobile-columns="{{ products_per_row_mobile }}"
-            {% unless settings.transitions--other %}
-              data-transition-container="{{ section.id }}"
-              data-transition-type="fade-in"
-              data-transition-trigger="{%- if paginate.pages == 1 -%}2{%- endif -%}0"
-              data-transition-cascade="horizontal"
-              data-transition-cascade-interval="200"
-            {% endunless %}
-          >
-            {%- if collection.products_count > 0 -%}
-              {%- liquid
-                assign product_index = 0
-                assign num_grid_items = products_per_page | plus: promo_html_arr.size
+    {%- endpaginate -%}
 
-                for i in (1..num_grid_items)
-                  assign grid_index = forloop.index
-                  assign promo_index = false
-
-                  for block in section.blocks
-                    if block.settings.position == grid_index
-                      assign promo_index = forloop.index0
-                      assign promo_width = block.settings.promo-width
-                      break
-                    endif
-                  endfor
-
-                  if promo_index
-                    assign column = grid_index | modulo: products_per_row_desktop
-                    if column == 0 and product_index == collection.products.size and promo_width == '2'
-                      break
-                    else
-                      echo promo_html_arr[promo_index]
-                    endif
-
-                  elsif product_index < collection.products.size
-                    assign product = collection.products[product_index]
-                    assign product_index = product_index | plus: 1
-                    assign loading = 'lazy'
-                    if grid_index <= products_per_row_desktop
-                      assign loading = 'eager'
-                    endif
-
-                    render 'product-card', product_item: product, transition_id: section.id, sizes: sizes, loading: loading
-                  else
-                    break
-                  endif
-                endfor
-              -%}
-
-            {%- elsif current_tags == blank -%}
-              <div class="main-collection--empty" data-container="block">
-                <p data-item="paragraph">
-                  {{- no_products_t -}}
-                </p>
-                <a href="{{ routes.root_url }}" data-item="block-link">
-                  <div>{{ continue_shopping_t }}</div>
-                </a>
-              </div>
-
-            {%- else -%}
-              <div class="main-collection--empty" data-container="block">
-                <p data-item="paragraph">
-                  {{- filter_feedback_t -}}
-                </p>
-              </div>
-
-            {%- endif -%}
-          </div>
-
-          <div
-            class="main-collection--pagination"
-            id="collection_pagination"
-            data-container="block"
-            data-body-pagination
-          >
-            {%- liquid
-              if paginate.pages > 1
-                render 'pagination', paginate: paginate, view: 'collection'
-              endif
-            -%}
-          </div>
-        {%- endpaginate -%}
   </div>
-  
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const btn = document.getElementById('load-more-{{ section.id }}');
+  if (!btn) return;
+
+  let isLoading = false;
+
+  btn.addEventListener('click', function () {
+    if (isLoading) return;
+    const nextUrl = btn.dataset.nextUrl;
+    if (!nextUrl) {
+      btn.remove();
+      return;
+    }
+
+    isLoading = true;
+    btn.disabled = true;
+    btn.textContent = btn.dataset.loadingText || 'Loading...';
+
+    const spinner = document.getElementById('load-spinner-{{ section.id }}');
+    if (spinner) spinner.classList.remove('hidden');
+
+    fetch(nextUrl)
+      .then(response => response.text())
+      .then(html => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+
+        const newItems = doc.querySelectorAll('#js-collection-grid-{{ section.id }} > *');
+
+        const targetGrid = document.getElementById('js-collection-grid-{{ section.id }}');
+
+        newItems.forEach(item => {
+          if (item.tagName === 'SCRIPT' || item.tagName === 'STYLE' || !item.innerHTML.trim()) return;
+          targetGrid.appendChild(item.cloneNode(true));
+        });
+
+        const nextBtn = doc.querySelector('#load-more-{{ section.id }}');
+        if (nextBtn && nextBtn.dataset.nextUrl) {
+          btn.dataset.nextUrl = nextBtn.dataset.nextUrl;
+          btn.disabled = false;
+          btn.textContent = 'Show more';
+        } else {
+          btn.remove();
+        }
+
+        if (spinner) spinner.classList.add('hidden');
+        isLoading = false;
+      })
+      .catch(() => {
+        btn.textContent = 'Error – try again';
+        btn.disabled = false;
+        if (spinner) spinner.classList.add('hidden');
+        isLoading = false;
+      });
+  });
+});
+</script>
+
 {% schema %}
 {
   "name": "Collection grid",
@@ -334,18 +400,9 @@
       "label": "Spacing above",
       "type": "select",
       "options": [
-        {
-          "label": "None",
-          "value": "none"
-        },
-        {
-          "label": "Half",
-          "value": "half"
-        },
-        {
-          "label": "Full",
-          "value": "full"
-        }
+        { "label": "None", "value": "none" },
+        { "label": "Half", "value": "half" },
+        { "label": "Full", "value": "full" }
       ],
       "default": "half"
     },
@@ -354,18 +411,9 @@
       "label": "Spacing below",
       "type": "select",
       "options": [
-        {
-          "label": "None",
-          "value": "none"
-        },
-        {
-          "label": "Half",
-          "value": "half"
-        },
-        {
-          "label": "Full",
-          "value": "full"
-        }
+        { "label": "None", "value": "none" },
+        { "label": "Half", "value": "half" },
+        { "label": "Full", "value": "full" }
       ],
       "default": "full"
     },
@@ -385,7 +433,8 @@
       "options": [
         { "value": "1", "label": "1" },
         { "value": "2", "label": "2" }
-      ]
+      ],
+      "default": "2"
     },
     {
       "label": "Maximum amount of rows per page",
@@ -397,6 +446,16 @@
       "default": 4
     },
     {
+      "label": "Initial rows to show",
+      "id": "initial-rows",
+      "type": "range",
+      "min": 1,
+      "max": 8,
+      "step": 1,
+      "default": 4,
+      "info": "Each Show more adds another 4 rows"
+    },
+    {
       "type": "header",
       "content": "Mobile"
     },
@@ -405,18 +464,9 @@
       "label": "Spacing above",
       "type": "select",
       "options": [
-        {
-          "label": "None",
-          "value": "none"
-        },
-        {
-          "label": "Half",
-          "value": "half"
-        },
-        {
-          "label": "Full",
-          "value": "full"
-        }
+        { "label": "None", "value": "none" },
+        { "label": "Half", "value": "half" },
+        { "label": "Full", "value": "full" }
       ],
       "default": "half"
     },
@@ -425,18 +475,9 @@
       "label": "Spacing below",
       "type": "select",
       "options": [
-        {
-          "label": "None",
-          "value": "none"
-        },
-        {
-          "label": "Half",
-          "value": "half"
-        },
-        {
-          "label": "Full",
-          "value": "full"
-        }
+        { "label": "None", "value": "none" },
+        { "label": "Half", "value": "half" },
+        { "label": "Full", "value": "full" }
       ],
       "default": "half"
     }
@@ -513,18 +554,9 @@
           "label": "Text width",
           "type": "select",
           "options": [
-            {
-              "value": "small",
-              "label": "Small"
-            },
-            {
-              "value": "medium",
-              "label": "Medium"
-            },
-            {
-              "value": "large",
-              "label": "Large"
-            }
+            { "value": "small", "label": "Small" },
+            { "value": "medium", "label": "Medium" },
+            { "value": "large", "label": "Large" }
           ],
           "default": "medium"
         },
@@ -533,18 +565,9 @@
           "label": "Text visibility enhancement",
           "type": "select",
           "options": [
-            {
-              "label": "None",
-              "value": "none"
-            },
-            {
-              "label": "Text shadow",
-              "value": "text-shadow"
-            },
-            {
-              "label": "Gradient behind text",
-              "value": "eclipse-shadow"
-            }
+            { "label": "None", "value": "none" },
+            { "label": "Text shadow", "value": "text-shadow" },
+            { "label": "Gradient behind text", "value": "eclipse-shadow" }
           ],
           "default": "none"
         },
@@ -553,26 +576,11 @@
           "label": "Background color",
           "type": "select",
           "options": [
-            {
-              "label": "None",
-              "value": "none"
-            },
-            {
-              "label": "Light",
-              "value": "light"
-            },
-            {
-              "label": "Dark",
-              "value": "dark"
-            },
-            {
-              "label": "Accent 1",
-              "value": "accent-1"
-            },
-            {
-              "label": "Accent 2",
-              "value": "accent-2"
-            }
+            { "label": "None", "value": "none" },
+            { "label": "Light", "value": "light" },
+            { "label": "Dark", "value": "dark" },
+            { "label": "Accent 1", "value": "accent-1" },
+            { "label": "Accent 2", "value": "accent-2" }
           ],
           "default": "none"
         },
@@ -581,26 +589,11 @@
           "label": "Text background color",
           "type": "select",
           "options": [
-            {
-              "label": "Transparent",
-              "value": "transparent"
-            },
-            {
-              "label": "Light",
-              "value": "light"
-            },
-            {
-              "label": "Dark",
-              "value": "dark"
-            },
-            {
-              "label": "Accent 1",
-              "value": "accent-1"
-            },
-            {
-              "label": "Accent 2",
-              "value": "accent-2"
-            }
+            { "label": "Transparent", "value": "transparent" },
+            { "label": "Light", "value": "light" },
+            { "label": "Dark", "value": "dark" },
+            { "label": "Accent 1", "value": "accent-1" },
+            { "label": "Accent 2", "value": "accent-2" }
           ],
           "default": "transparent"
         },
@@ -624,22 +617,10 @@
           "label": "Image overlay",
           "type": "select",
           "options": [
-            {
-              "label": "None",
-              "value": "none"
-            },
-            {
-              "label": "Darken entire image",
-              "value": "darken"
-            },
-            {
-              "label": "Dark gradient from top",
-              "value": "darken-top"
-            },
-            {
-              "label": "Dark gradient from bottom",
-              "value": "darken-bottom"
-            }
+            { "label": "None", "value": "none" },
+            { "label": "Darken entire image", "value": "darken" },
+            { "label": "Dark gradient from top", "value": "darken-top" },
+            { "label": "Dark gradient from bottom", "value": "darken-bottom" }
           ],
           "default": "darken-bottom",
           "info": "Can enhance text visibility"
@@ -684,42 +665,15 @@
           "label": "Highlight type",
           "type": "select",
           "options": [
-            {
-              "label": "Italic",
-              "value": "italic"
-            },
-            {
-              "label": "Bold",
-              "value": "bold"
-            },
-            {
-              "label": "Bold italic",
-              "value": "bold-italic"
-            },
-            {
-              "label": "Text color",
-              "value": "color"
-            },
-            {
-              "label": "Outlined",
-              "value": "outlined"
-            },
-            {
-              "label": "Highlight",
-              "value": "highlight"
-            },
-            {
-              "label": "Half highlight",
-              "value": "half-highlight"
-            },
-            {
-              "label": "Underline",
-              "value": "underline"
-            },
-            {
-              "label": "Reverse opacity",
-              "value": "reverse-opacity"
-            }
+            { "label": "Italic", "value": "italic" },
+            { "label": "Bold", "value": "bold" },
+            { "label": "Bold italic", "value": "bold-italic" },
+            { "label": "Text color", "value": "color" },
+            { "label": "Outlined", "value": "outlined" },
+            { "label": "Highlight", "value": "highlight" },
+            { "label": "Half highlight", "value": "half-highlight" },
+            { "label": "Underline", "value": "underline" },
+            { "label": "Reverse opacity", "value": "reverse-opacity" }
           ],
           "default": "italic"
         },
